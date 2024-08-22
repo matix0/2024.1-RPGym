@@ -23,8 +23,6 @@ Para acessar a documentação [clique aqui.](https://mdsreq-fga-unb.github.io/20
 <p align="center">
 <a href="https://github.com/daramariabs"><img src="https://imgur.com/dErePLn.png" width=130/></a>
 <a href="https://github.com/DaviRogs"><img src="https://imgur.com/EGPjT9W.png" width=130/></a>
-<a href="https://github.com/GenilsonJrs"><img src="https://imgur.com/D8AscKX.png" width=130/></a>
-<a href="https://github.com/isaquecolem"><img src="https://imgur.com/pDGLfiW.png" width=130></a>
 <a href="https://github.com/Akaeboshi"><img src="https://imgur.com/NtyTl5K.png" width=130/></a>
 <a href="https://github.com/matix0"><img src="https://imgur.com/YHAW2qc.png" width=130/></a>
 <br/>
@@ -36,7 +34,5 @@ Para acessar a documentação [clique aqui.](https://mdsreq-fga-unb.github.io/20
 | --------- | -------------------------------------- | ----------------------------------------------- | -------------------------- |
 | 202046040 | Dara Maria Barbosa de Sousa               | [daramariabs](https://github.com/daramariabs)       | darasousa09@gmail.com         |
 | 211061618 | Davi Rodrigues da Rocha           | [DaviRogs](https://github.com/DaviRogs) / [DaviRogs1](https://github.com/DaviRogs1)   | davirocha12.80@gmail.com       |
-| 202045482 | Genilson Silva de Araújo Júnior | [GenilsonJrs](https://github.com/GenilsonJrs)       | genilson.junior.99006@gmail.com       |
-| 221022300 | Isaque Colem Bastos de Quental          | [isaquecolem](https://github.com/isaquecolem) | isaquecolem55@gmail.com |
 |  202016800 | Lucas Heler Lopes                    | [Akaeboshi](https://github.com/Akaeboshi) | lucasheler3@gmail.com      |
 | 202016963 | Mateus Vinicius Vieira             | [matix0](https://github.com/matix0)         | mateusviniciuspw@gmail.com  |
