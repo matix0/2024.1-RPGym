@@ -1,46 +1,90 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 20px;
-    width: 40vw;
-    height: 80vh;
-    background-color: #ffffff;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1.5vw;
+  min-width: 36vw;
+  min-height: 68vh;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 2vw 0.2vw rgba(0, 0, 0, 0.75);
 `;
 
 export const Title = styled.h1`
-    font-family: 'Poppins', inherit;
-    font-size: 4vmax;
-    margin-bottom: 1vh;
+  font-family: "Poppins", inherit;
+  font-size: 2.8vw;
+  margin-bottom: 1vh;
+  font-weight: bold;
+  font-weight: 600;
+`;
+
+export const Login = styled.button`
+  border-radius: 0.5vw;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 101, 253, 1) 0%,
+    rgba(188, 0, 254, 1) 100%
+  );
+  font-family: "Poppins";
+  font-weight: bold;
+  font-size: 1vw;
+  font-weight: 500;
+  color: white;
+  border: none;
+  width: 27vw;
+  height: 6vh;
+  cursor: pointer;
+  margin-top: 8vw;
 `;
 
 export const DivForms = styled.div`
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const DivDescricao = styled.div`
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const DivSubdescricao = styled.div`
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const Subtitle = styled.p`
-    font-family: 'Poppins', inherit;
-    margin-bottom: -0.7vh;
-    font-weight: bold;
-    font-size: 1vmax;
+  font-family: "Poppins", inherit;
+  margin-bottom: -0.7vh;
+  font-weight: bold;
+  font-weight: 600;
+  font-size: 1.2vw;
 `;
 
 export const SubSubtitle = styled.p`
-    font-family: 'Poppins', inherit;
-    margin-bottom: 1vh;
-    font-size: 1vmax;
+  font-family: "Poppins", inherit;
+  margin-bottom: 1vh;
+  font-size: 0.8vw;
+  color: #666666;
+  font-weight: 300;
+  margin-bottom: 2vw;
+`;
+
+export const SubSubSubtitle = styled.p`
+  font-family: "Poppins";
+  font-size: 0.8vw;
+  color: #666666;
+  font-weight: 300;
+  margin-top: -0.2vw;
+  align-self: flex-end;
+`;
+
+export const SubSubSubSubtitle = styled.p`
+  font-family: "Poppins";
+  font-size: 0.8vw;
+  color: #666666;
+  font-weight: 300;
+  margin-top: 1vw;
+  align-self: center;
+  margin-bottom: 2vw;
 `;
