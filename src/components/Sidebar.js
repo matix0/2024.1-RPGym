@@ -1,10 +1,10 @@
 import React from "react";
-import campeonato from "../assets/imagens/icones/campeonatos.png";
-import home from "../assets/imagens/icones/home.png";
-import ranking from "../assets/imagens/icones/ranking.png";
-import sobre from "../assets/imagens/icones/sobre.png";
-import usuario from "../assets/imagens/icones/usuario.png";
-import configuracoes from "../assets/imagens/icones/configuracoes.png";
+import campeonato from "../assets/images/icones/campeonatos.png";
+import home from "../assets/images/icones/home.png";
+import ranking from "../assets/images/icones/ranking.png";
+import sobre from "../assets/images/icones/sobre.png";
+import usuario from "../assets/images/icones/usuario.png";
+import configuracoes from "../assets/images/icones/configuracoes.png";
 
 const Sidebar = () => {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
-import notificações from "../assets/imagens/icones/notificações.png";
-import stars from "../assets/imagens/icones/stars.png";
+import notificacoes from "../assets/images/icones/notificacoes.png";
+import stars from "../assets/images/icones/stars.png";
 
 const Header = () => {
   return (
@@ -8,7 +8,7 @@ const Header = () => {
       <div className="Logo">RPGym</div>
       <div className="Vazio"></div>
       <div className="Bell">
-        <img src={notificações} alt="notificações" />
+        <img src={notificacoes} alt="notificações" />
       </div>
       <div className="Moeda">
         <img src={stars} alt="Moeda" />
