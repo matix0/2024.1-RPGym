@@ -1,11 +1,11 @@
 import { Background, Posicao } from "./styles";
-import ModalLogin from "../../components/ModalLogin";
+import ModalRegister from "../../components/ModalRegister";
 
 const Login = () => {
   return (
     <Background>
       <Posicao>
-        <ModalLogin />
+        <ModalRegister />
       </Posicao>
     </Background>
   );

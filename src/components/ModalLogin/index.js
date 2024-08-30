@@ -27,11 +27,15 @@ function ModalLogin() {
         <Input />
         <Input />
         <SubSubSubtitle>Esqueceu sua senha?</SubSubSubtitle>
-        <a href="/dashboard">
-          <Login>Log In</Login>
-        </a>
+        <Login
+          onClick={() => {
+            window.open("/dashboard", "_self");
+          }}
+        >
+          Log In
+        </Login>
         <SubSubSubSubtitle>
-          Não tem uma conta? <a href="/nerd">Cadastre-se</a>
+          Não tem uma conta? <a href="/Register">Cadastre-se</a>
         </SubSubSubSubtitle>
       </DivForms>
     </Container>
