@@ -9,8 +9,8 @@ import {
   Cadastrese,
   DivFormsBaixo,
 } from "./styles";
-import { Input } from "../inputText/styles";
-import { InputIdade } from "../inputIdade/styles";
+import InputText from "../inputText";
+import InputIdade from "../inputIdade/index.js";
 
 function ModalRegister() {
   return (
@@ -20,16 +20,16 @@ function ModalRegister() {
           <Title>RPGym</Title>
           <Subtitle>Faça o cadastro e começe seu legado!</Subtitle>
         </DivDescricao>
-        <Input />
-        <Input />
-        <Input />
+        <InputText placeholder="Email"/>
+        <InputText placeholder="Senha" type="password"/>
+        <InputText placeholder="Confirme a sua senha" type="password"/>
         <DivFormsBaixo>
-          <Input />
-          <InputIdade />
+          <InputText placeholder="Apelido"/>
+          <InputIdade placeholder="Idade"/>
         </DivFormsBaixo>
         <Cadastrese
           onClick={() => {
-            window.open("/dashboard", "_blank");
+            window.open("/dashboard", "_self");
           }}
         >
           Cadastre-se

@@ -11,7 +11,7 @@ import {
   DivSubdescricao,
   Login,
 } from "./styles";
-import { Input } from "../inputText/styles";
+import InputText from "../inputText/index.js";
 
 function ModalLogin() {
   return (
@@ -24,8 +24,8 @@ function ModalLogin() {
             <SubSubtitle>Faça login para iniciar sua aventura!</SubSubtitle>
           </DivSubdescricao>
         </DivDescricao>
-        <Input />
-        <Input />
+        <InputText placeholder="Email"/>
+        <InputText placeholder="Senha" type="password"/>
         <SubSubSubtitle>Esqueceu sua senha?</SubSubSubtitle>
         <Login
           onClick={() => {
