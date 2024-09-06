@@ -14,4 +14,4 @@ export const Input = styled.input`
   border-style: solid;
   border-color: #cccccc;
   flex-grow: 1;
-`;
+`

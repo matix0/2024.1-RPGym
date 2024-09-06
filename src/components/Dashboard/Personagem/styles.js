@@ -7,6 +7,7 @@ export const Box = styled.div`
     width: 31em;
     height: 15em;
     border-radius: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 `
 export const BoxInfos = styled.div`
     display: flex;
@@ -24,7 +25,7 @@ export const BoxInfoPerson = styled.div`
     height: 15em;
     border-radius: 10px;
     align-items: center;
-    margin-left: -4.4em;
+    margin-left: -6.5em;
 `
 
 export const ApelidoBox = styled.div`
@@ -32,15 +33,18 @@ export const ApelidoBox = styled.div`
     border-color: black;
     position: relative;
     background-color: #8000FF;
-    border-radius: 10px;
-    border-color: white;
-    border-width: 4em;
+    border-radius: 20px;
+    border-color: black;
+    border-width: 1.5px;
+    border-style: solid;
     justify-content: center;
     align-items: center;
     width: auto;
-    height: 1.5em;
-    top: -3em;
-    left: 4em;
+    padding-left: 1em;
+    padding-right: 1em;
+    height: 1.8em;
+    top: -1em;
+    left: 5.5em;
 `
 
 export const IMC = styled.div`
@@ -48,7 +52,7 @@ export const IMC = styled.div`
     flex-direction: column;
     justify-items: center;
     align-items: center;
-    margin-bottom: -1.5em;
+    margin-bottom: -1.8em;
 `
 
 export const Timc = styled.h1`
@@ -72,7 +76,7 @@ export const Metricas = styled.div`
 export const TPeso = styled.h3`
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    margin-bottom: -0.6em;
+    margin-bottom: -1em;
 `
 
 export const Peso = styled.h4`
@@ -83,7 +87,7 @@ export const Peso = styled.h4`
 export const TAltura = styled.h3`
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    margin-bottom: -0.6em;
+    margin-bottom: -1em;
 `
 
 export const Altura = styled.h4`
@@ -116,4 +120,80 @@ export const BoxPerson = styled.div`
     width: 20em;
     height: 15em;
     bottom: 1em;
+`
+
+export const ButtonBox = styled.div`
+    display: flex;
+`
+
+export const ActiveButton = styled.button`
+    color: #8000FF;
+    border: black;
+    font-weight: 600;
+    font-size: 1.2em;
+    cursor: pointer;
+    background: linear-gradient(180deg, #FFA800, #FFE6B6);
+    width: 8em;
+    height: 1.7em;
+    border-radius:0.4vw;
+    display: flex;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;    
+    transition: all 0.2s;
+    font-family: Poppins;
+    font-style: normal;
+
+    &:hover {
+        filter: brightness(1.1); /* Aumenta o brilho em 10% */
+    }
+
+    &:active{
+        transform: translateY(2px);
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    }
+`
+
+export const MoreBox1 = styled.div`
+    display: flex;
+    position: relative;
+    color: #6B00D6;
+    font-weight: 700;
+    font-size: 3em;
+    z-index: 100;
+    right: 4.34em;
+    top: 0.8em;
+`
+
+export const CircleBox1 = styled.div`
+    display: flex;
+    position: relative;
+    color: #6B00D6;
+    font-weight: 700;
+    font-size: 7em;
+    z-index: 100;
+    right: 2.6em;
+    bottom: 0.7em;
+`
+
+export const MoreBox2 = styled.div`
+    display: flex;
+    position: relative;
+    color: #6B00D6;
+    font-weight: 700;
+    font-size: 1.5em;
+    z-index: 100;
+    right: 3.5em;
+    top: 4.5em;
+`
+
+export const CircleBox2 = styled.div`
+    display: flex;
+    position: relative;
+    color: #6B00D6;
+    font-weight: 700;
+    font-size: 3.5em;
+    z-index: 100;
+    right: 1.8em;
+    top: 2.2em;
 `

@@ -1,11 +1,13 @@
 import React from "react";
-import { ApelidoBox, Box, BoxInfos, IMC, Timc, Vimc, Metricas, TPeso, TAltura, PesoBox, AlturaBox, Peso, Altura, BoxInfoPerson, BoxPerson,} from "./styles";
+import { ApelidoBox, Box, BoxInfos, ButtonBox, IMC, Timc, Vimc, Metricas, TPeso, TAltura, PesoBox, AlturaBox, Peso, Altura, BoxInfoPerson, BoxPerson, ActiveButton, MoreBox1, CircleBox1, MoreBox2, CircleBox2} from "./styles";
+
+import { RiAddLine } from "react-icons/ri";
 
 const Personagem = () => {
   return (
     <Box>
       <ApelidoBox>
-        Jacinto
+        [Apelido]
       </ApelidoBox>
       <BoxInfoPerson>
         <BoxInfos>
@@ -15,18 +17,36 @@ const Personagem = () => {
           </IMC>
           <Metricas>
             <PesoBox>
-              <TPeso>Peso</TPeso>
+              <TPeso>Peso:</TPeso>
               <Peso>[Valor do peso]</Peso>
             </PesoBox>
             <AlturaBox>
-              <TAltura>Altura</TAltura>
+              <TAltura>Altura :</TAltura>
               <Altura>[Valor da Altura]</Altura>
             </AlturaBox>
           </Metricas>
+          <ButtonBox>
+            <ActiveButton>
+              <RiAddLine style={{marginRight:"0.3em"}}/>
+              Registrar
+              </ActiveButton>
+          </ButtonBox>
         </BoxInfos>
         <BoxPerson>
         </BoxPerson>
       </BoxInfoPerson>
+      <MoreBox1>
+        +
+      </MoreBox1>
+      <CircleBox1>
+        .
+      </CircleBox1>
+      <MoreBox2>
+        +
+      </MoreBox2>
+      <CircleBox2>
+        .
+      </CircleBox2>
     </Box>
   )
 };

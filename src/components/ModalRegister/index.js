@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Container,
   Title,
@@ -13,6 +13,13 @@ import InputText from "../inputText";
 import InputIdade from "../inputIdade/index.js";
 
 function ModalRegister() {
+  const [apelido, setApelido] = useState();
+
+  const handleApelidoChange = (e) => {
+    const UniqueWord = e.target.value.split(" ")[0];
+    setApelido(UniqueWord);
+  };
+
   return (
     <Container>
       <DivForms>
@@ -24,7 +31,7 @@ function ModalRegister() {
         <InputText placeholder="Senha" type="password"/>
         <InputText placeholder="Confirme a sua senha" type="password"/>
         <DivFormsBaixo>
-          <InputText placeholder="Apelido"/>
+          <InputText placeholder="Apelido" value={apelido} onChange={handleApelidoChange} />
           <InputIdade placeholder="Idade"/>
         </DivFormsBaixo>
         <Cadastrese
