@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ApelidoBox, Box, BoxInfos, ButtonBox, IMC, Timc, Vimc, Metricas, TPeso, TAltura, PesoBox, AlturaBox, Peso, Altura, BoxInfoPerson, BoxPerson, ActiveButton, MoreBox1, CircleBox1, MoreBox2, CircleBox2} from "./styles";
+import { ApelidoBox, Box, BoxInfos, ButtonBox, IMC, Timc, Vimc, Metricas, TPeso, TAltura, PesoBox, AlturaBox, Peso, Altura, BoxInfoPerson, BoxPerson, ActiveButton, MoreBox1, CircleBox1, MoreBox2, CircleBox2, MoreBox3, CircleBox3} from "./styles";
 
 import { RiAddLine } from "react-icons/ri";
 import ModalExercicio from "../../ModalExercicio";
@@ -59,7 +59,13 @@ const Personagem = () => {
       <CircleBox2>
         .
       </CircleBox2>
-
+      <MoreBox3>
+        +
+      </MoreBox3>
+      <CircleBox3>
+        .
+      </CircleBox3>
+      
       {isModalOpen && <ModalExercicio CloseOnClick={CloseHandleModalToggle} SuccessOnClick={SuccessHandleModalToggle}/>}
     </Box>
   )

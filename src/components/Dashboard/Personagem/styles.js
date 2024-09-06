@@ -212,3 +212,25 @@ export const CircleBox2 = styled.div`
     right: 1.8em;
     top: 2.2em;
 `
+
+export const MoreBox3 = styled.div`
+    display: flex;
+    position: relative;
+    color: #6B00D6;
+    font-weight: 700;
+    font-size: 1.5em;
+    z-index: 100;
+    right: 23em;
+    top: 8em;
+`
+
+export const CircleBox3 = styled.div`
+    display: flex;
+    position: relative;
+    color: #6B00D6;
+    font-weight: 700;
+    font-size: 3.5em;
+    z-index: 100;
+    right: 6.1em;
+    top: 2.1em;
+`
