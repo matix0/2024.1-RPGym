@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { ApelidoBox, Box, BoxInfos, ButtonBox, IMC, Timc, Vimc, Metricas, TPeso, TAltura, PesoBox, AlturaBox, Peso, Altura, BoxInfoPerson, BoxPerson, ActiveButton, MoreBox1, CircleBox1, MoreBox2, CircleBox2} from "./styles";
 
 import { RiAddLine } from "react-icons/ri";
+import ModalExercicio from "../../ModalExercicio";
 
 const Personagem = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const CloseHandleModalToggle = () => {
+    setIsModalOpen(!isModalOpen); // Alterna o estado do modal
+  };
+
+  const SuccessHandleModalToggle = () => {
+    
+    setIsModalOpen(!isModalOpen); // Alterna o estado do modal PARA QUANDO REGISTRA A ATIVIDADE
+  };
+
   return (
     <Box>
       <ApelidoBox>
@@ -26,7 +38,7 @@ const Personagem = () => {
             </AlturaBox>
           </Metricas>
           <ButtonBox>
-            <ActiveButton>
+            <ActiveButton onClick={CloseHandleModalToggle}>
               <RiAddLine style={{marginRight:"0.3em"}}/>
               Registrar
               </ActiveButton>
@@ -47,6 +59,8 @@ const Personagem = () => {
       <CircleBox2>
         .
       </CircleBox2>
+
+      {isModalOpen && <ModalExercicio CloseOnClick={CloseHandleModalToggle} SuccessOnClick={SuccessHandleModalToggle}/>}
     </Box>
   )
 };

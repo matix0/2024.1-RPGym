@@ -3,7 +3,7 @@ import Header from "../../components/Header";
 import Sidebar from "../../components/Sidebar";
 import "../../styles/global.css";
 import "../../styles/dashboard.css";
-import Personagem from "../../components/Dashboard/Personagem/Personagem";
+import Personagem from "../../components/Dashboard/Personagem";
 
 const Dashboard = () => {
   return (

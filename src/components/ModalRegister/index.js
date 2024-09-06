@@ -27,7 +27,7 @@ function ModalRegister() {
           <Title>RPGym</Title>
           <Subtitle>Faça o cadastro e começe seu legado!</Subtitle>
         </DivDescricao>
-        <InputText placeholder="Email"/>
+        <InputText type="email" placeholder="Email"/>
         <InputText placeholder="Senha" type="password"/>
         <InputText placeholder="Confirme a sua senha" type="password"/>
         <DivFormsBaixo>
