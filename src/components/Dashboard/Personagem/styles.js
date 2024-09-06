@@ -1,5 +1,18 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import MalePerson from "../../../assets/images/Personagens/MalePerson.png"
+
+// Defina a animação de subir e descer
+const moveUpDown = keyframes`
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px); /* Sobe 10px */
+  }
+  100% {
+    transform: translateY(0); /* Volta à posição inicial */
+  }
+`;
 
 export const Box = styled.div`
     display: flex;
@@ -120,6 +133,8 @@ export const BoxPerson = styled.div`
     width: 20em;
     height: 15em;
     bottom: 1em;
+
+    animation: ${moveUpDown} 4s infinite ease-in-out;
 `
 
 export const ButtonBox = styled.div`
