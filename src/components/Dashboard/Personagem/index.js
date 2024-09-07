@@ -31,13 +31,26 @@ import ModalExercicio from "../../ModalExercicio";
 
 const Personagem = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
 
   const CloseHandleModalToggle = () => {
-    setIsModalOpen(!isModalOpen); // Alterna o estado do modal
+    setIsClosing(true); // Inicia o fechamento
+    setTimeout(() => {
+      setIsModalOpen(false); // Fecha o modal após a animação
+      setIsClosing(false); // Reseta o estado de fechamento
+    }, 300); // Ajuste o tempo para o mesmo da duração da animação de saída
   };
 
   const SuccessHandleModalToggle = () => {
-    setIsModalOpen(!isModalOpen); // Alterna o estado do modal PARA QUANDO REGISTRA A ATIVIDADE
+    setIsClosing(true);
+    setTimeout(() => {
+      setIsModalOpen(false);
+      setIsClosing(false);
+    }, 300);
+  };
+
+  const openModal = () => {
+    setIsModalOpen(true);
   };
 
   return (
@@ -61,7 +74,7 @@ const Personagem = () => {
               </AlturaBox>
             </Metricas>
             <ButtonBox>
-              <ActiveButton onClick={CloseHandleModalToggle}>
+              <ActiveButton onClick={openModal}>
                 <RiAddLine style={{ marginRight: "0.3em" }} />
                 Registrar
               </ActiveButton>
@@ -89,7 +102,7 @@ const Personagem = () => {
         .
       </CircleBox3>
       
-      {isModalOpen && <ModalExercicio isOpen={isModalOpen} CloseOnClick={CloseHandleModalToggle} SuccessOnClick={SuccessHandleModalToggle}/>}
+      {isModalOpen && <ModalExercicio isOpen={!isClosing} CloseOnClick={CloseHandleModalToggle} SuccessOnClick={SuccessHandleModalToggle}/>}
     </Box>
   </Grid>
   )
