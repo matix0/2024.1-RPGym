@@ -83,6 +83,8 @@ export const BoxButton = styled.div`
 `
 
 export const BoxAdd = styled.div`
+  display: flex;
+  position: absolute;
   border: black;
   font-weight: 600;
   font-size: 1.2em;
@@ -98,8 +100,9 @@ export const BoxAdd = styled.div`
   transition: all 0.2s;
   font-family: Poppins;
   font-style: normal;
-  margin-left: 12em;
-  margin-top: -2em;
+  margin-left: 23em;
+  top: 1.6em; /* Mantém a posição vertical fixa */
+  transform: translateY(-50%); /* Centraliza verticalmente */
 
   &:hover {
     filter: brightness(1.1); /* Aumenta o brilho em 10% */

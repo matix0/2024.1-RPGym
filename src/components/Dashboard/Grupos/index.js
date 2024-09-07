@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Caixa, BoxMore, BoxAdd, ButtonAdd, BoxListGroups, Grid, BoxButton, DescriptionBox, Title, SubTitle, ButtonMore, GroupBox, GroupName, GroupItem, CircleBox1, MoreBox1, CircleBox2 } from "./styles";
 import { RiAddLine } from "react-icons/ri";
 
@@ -19,13 +19,37 @@ const BancoFalsoGrupos = [
   
 
 const Grupos = () => {
+
+  const [fontSize, setFontSize] = useState(1); // Estado para controlar o tamanho da fonte
+  const boxListRef = useRef(null); // Ref para o BoxListGroups
+
+  // Função que atualiza o tamanho da fonte com base no scroll
+  const handleScroll = () => {
+    const scrollTop = boxListRef.current.scrollTop;
+    if (scrollTop > 0) {
+      setFontSize(0.7); // Diminui a fonte quando faz o scroll para baixo
+    } else {
+      setFontSize(1); // Retorna ao tamanho normal quando volta ao topo
+    }
+  };
+
+  useEffect(() => {
+    const boxListGroups = boxListRef.current;
+    if (boxListGroups) {
+      boxListGroups.addEventListener("scroll", handleScroll);
+      return () => {
+        boxListGroups.removeEventListener("scroll", handleScroll);
+      };
+    }
+  }, []);
+
   return (
     <Grid>
       <Caixa>
         <BoxMore>
-            <DescriptionBox>
-            <Title>Seus Grupos</Title>
-            <SubTitle>Veja os seus grupos!</SubTitle>
+            <DescriptionBox style={{ fontSize: `${fontSize}em`, transition: 'font-size 0.2s ease' }}>
+              <Title>Seus Grupos</Title>
+              <SubTitle>Veja os seus grupos!</SubTitle>
             </DescriptionBox>
             <BoxAdd>
                 <ButtonAdd>
@@ -33,7 +57,7 @@ const Grupos = () => {
                 </ButtonAdd>
             </BoxAdd>
         </BoxMore>
-        <BoxListGroups>
+        <BoxListGroups ref={boxListRef}>
             {BancoFalsoGrupos.map((grupo, index) => (
                 <GroupBox key={index}>
                 <GroupName>{grupo.nome}</GroupName>
