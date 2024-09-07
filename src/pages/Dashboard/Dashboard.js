@@ -4,7 +4,8 @@ import Sidebar from "../../components/Sidebar";
 import "../../styles/global.css";
 import "../../styles/dashboard.css";
 import Personagem from "../../components/Dashboard/Personagem";
-import Amigos from "../../components/Dashboard/Amigos/Amigos";
+import Amigos from "../../components/Dashboard/Amigos";
+import Grupos from "../../components/Dashboard/Grupos";
 
 const Dashboard = () => {
   return (
@@ -14,7 +15,7 @@ const Dashboard = () => {
         <Personagem />
         <Amigos />
         <div className="Desafios"></div>
-        <div className="Grupos"></div>
+        <Grupos />
       </div>
       <Sidebar />
     </div>

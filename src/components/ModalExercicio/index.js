@@ -23,7 +23,7 @@ function ModalExercicio({isOpen, CloseOnClick, SuccessOnClick}) {
                 <MdClose />
             </CloseButton>
             <ModalContent>
-                <h1>Registrar atividade</h1>
+                <h1 style={{color: "#8000ff"}}>Registrar atividade</h1>
                     <InputText placeholder="Nome da atividade" type="text" />
                     <CaloTem>
                         <Input placeholder="Calorias (Cal)" type="number" />

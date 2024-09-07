@@ -1,19 +1,25 @@
 import styled, { keyframes } from "styled-components";
 
-const fadeIn = keyframes`
+// Animação para crescer a partir do meio (abrir)
+const scaleIn = keyframes`
   from {
+    transform: scale(0);
     opacity: 0;
   }
   to {
+    transform: scale(1);
     opacity: 1;
   }
 `;
 
-const fadeOut = keyframes`
+// Animação para diminuir para o meio (fechar)
+const scaleOut = keyframes`
   from {
+    transform: scale(1);
     opacity: 1;
   }
   to {
+    transform: scale(0);
     opacity: 0;
   }
 `;
@@ -30,23 +36,25 @@ export const ModalBackground = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  animation: ${({ isOpen }) => (isOpen ? fadeIn : fadeOut)} 0.5s forwards;
   opacity: ${({ isOpen }) => (isOpen ? '1' : '0')};
   visibility: ${({ isOpen }) => (isOpen ? 'visible' : 'hidden')};
-  transition: visibility 0.5s, opacity 0.5s;
+  transition: visibility 0.3s, opacity 0.3s;
 `;
 
 // Container do modal
 export const ModalContainer = styled.div`
-  background: linear-gradient(180deg, #6B00D6, #8000FF);
+  background-color: rgba(0, 0, 0, 0.6);
+  border-style: solid;
+  border-width: 1px;
   padding: 2em;
   border-radius: 10px;
   width: 50%;
   max-width: 500px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   position: relative;
-  animation: ${({ isOpen }) => (isOpen ? fadeIn : fadeOut)} 0.5s forwards;
-  transition: opacity 0.5s;
+  /* Aplica a animação dependendo do estado do modal */
+  animation: ${({ isOpen }) => (isOpen ? scaleIn : scaleOut)} 0.3s forwards;
+  transform-origin: center; /* Define o ponto de origem como o centro */
 `;
 
 // Conteúdo do modal
@@ -69,7 +77,7 @@ export const CloseButton = styled.button`
   cursor: pointer;
 
   &:hover {
-    color: yellow;
+    color: #ec5353;
   }
 `;
 
@@ -82,12 +90,12 @@ export const CaloTem = styled.div`
 `;
 
 export const ActiveButton = styled.button`
-    color: #8000FF;
+    color: rgba(255, 255, 255, 1);
     border: black;
     font-weight: 600;
     font-size: 1.2em;
     cursor: pointer;
-    background: linear-gradient(180deg, #FFA800, #FFE6B6);
+    background: linear-gradient(180deg, #8000ff, #6000ff);
     width: 8em;
     height: 1.7em;
     border-radius:0.4vw;

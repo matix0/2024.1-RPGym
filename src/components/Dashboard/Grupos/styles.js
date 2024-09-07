@@ -14,7 +14,7 @@ const moveUpDown = keyframes`
 `;
 
 export const Grid = styled.div`
-  grid-area: Amigos;
+  grid-area: Grupos;
   margin: auto;
 `;
 
@@ -39,6 +39,13 @@ export const DescriptionBox = styled.div`
     margin-left: 2em;
 `
 
+export const BoxMore = styled.div`
+    display: flex;
+    flex-shrink: 0;
+    flex-direction: row;
+    align-items: center;
+`
+
 export const Title = styled.h3`
     margin-bottom: -1em;
 `
@@ -49,7 +56,7 @@ export const SubTitle = styled.h4`
     opacity: 75%;
 `
 
-export const BoxListPersons = styled.div`
+export const BoxListGroups = styled.div`
     display: flex;
     margin-left: 2em;
     flex-grow: 1;
@@ -73,6 +80,45 @@ export const BoxButton = styled.div`
     justify-content: center;
     top: 12em;
     right: 2em;
+`
+
+export const BoxAdd = styled.div`
+  border: black;
+  font-weight: 600;
+  font-size: 1.2em;
+  cursor: pointer;
+  background-color: whitesmoke;
+  width: 2em;
+  height: 1.7em;
+  border-radius: 0.4vw;
+  display: flex;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s;
+  font-family: Poppins;
+  font-style: normal;
+  margin-left: 12em;
+  margin-top: -2em;
+
+  &:hover {
+    filter: brightness(1.1); /* Aumenta o brilho em 10% */
+  }
+
+  &:active {
+    transform: translateY(2px);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  }
+`
+
+export const ButtonAdd = styled.button`
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `
 
 export const ButtonMore = styled.button`
@@ -104,27 +150,20 @@ export const ButtonMore = styled.button`
     // animation: ${moveUpDown} 4s infinite ease-in-out;
 `
 
-export const FriendBox = styled.div`
+export const GroupBox = styled.div`
   margin-top: 20px;
 `;
 
-export const FriendName = styled.h3`
+export const GroupName = styled.h3`
   font-size: 1em;
   font-weight: 600;
   margin-top: -1em;
 `;
 
-export const GroupList = styled.ul`
-  display: flex;
-  list-style: none;
-  padding: 0;
-  flex-direction: row;
-  margin-top: -0.8em;
-`;
-
-export const GroupItem = styled.li`
+export const GroupItem = styled.ul`
     font-size: 0.7em;
-    margin-left: 10px;
+    margin-left: -2em;
+    margin-top: -1em;
 `;
 
 export const CircleBox1 = styled.div`
@@ -133,9 +172,9 @@ export const CircleBox1 = styled.div`
     color: #171717;
     font-weight: 700;
     font-size: 3.5em;
-    z-index: 100;
-    left: 7.5em;
-    top: -0.5em;
+    z-index: 10;
+    left: 6.9em;
+    top: 1em;
     cursor: default;
 `
 
@@ -145,8 +184,8 @@ export const MoreBox1 = styled.div`
     color: #171717;
     font-weight: 700;
     font-size: 1.7em;
-    z-index: 100;
-    left: 11em;
+    z-index: 10;
+    left: 9.5em;
     top: 1em;
     cursor: default;
 `
@@ -157,7 +196,7 @@ export const CircleBox2 = styled.div`
     color: #171717;
     font-weight: 700;
     font-size: 10em;
-    z-index: 100;
+    z-index: 10;
     left: 1.4em;
     top: -0.1em;
     cursor: default;
