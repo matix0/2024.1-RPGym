@@ -273,7 +273,10 @@
     grid-area: 2 / 2 / 3 / 3;
   }
   
-  .Personagem { grid-area: Personagem; }
+  .Personagem { 
+    grid-area: Personagem; 
+    align-items: center;
+  }
   
   .Amigos { grid-area: Amigos; }
   

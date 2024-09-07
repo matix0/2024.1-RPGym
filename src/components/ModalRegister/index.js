@@ -27,12 +27,16 @@ function ModalRegister() {
           <Title>RPGym</Title>
           <Subtitle>Faça o cadastro e começe seu legado!</Subtitle>
         </DivDescricao>
-        <InputText type="email" placeholder="Email"/>
-        <InputText placeholder="Senha" type="password"/>
-        <InputText placeholder="Confirme a sua senha" type="password"/>
+        <InputText type="email" placeholder="Email" />
+        <InputText placeholder="Senha" type="password" />
+        <InputText placeholder="Confirme a sua senha" type="password" />
         <DivFormsBaixo>
-          <InputText placeholder="Apelido" value={apelido} onChange={handleApelidoChange} />
-          <InputIdade placeholder="Idade"/>
+          <InputText
+            placeholder="Apelido"
+            value={apelido}
+            onChange={handleApelidoChange}
+          />
+          <InputIdade placeholder="Idade" />
         </DivFormsBaixo>
         <Cadastrese
           onClick={() => {

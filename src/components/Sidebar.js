@@ -15,8 +15,11 @@ const Sidebar = () => {
       <div className="Navegar">Navegar</div>
       <div className="Home">Home</div>
       <div className="IconHome">
-        <img src={home} alt="home" />
+        <a href="/dashboard">
+          <img src={home} alt="home" />
+        </a>
       </div>
+
       <div className="Ranking">Ranking</div>
       <div className="IconRanking">
         <img src={ranking} alt="ranking" />
