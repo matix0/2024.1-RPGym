@@ -65,26 +65,34 @@ const Personagem = () => {
                 <RiAddLine style={{ marginRight: "0.3em" }} />
                 Registrar
               </ActiveButton>
-            </ButtonBox>
-          </BoxInfos>
-          <BoxPerson></BoxPerson>
-        </BoxInfoPerson>
-        <MoreBox1>+</MoreBox1>
-        <CircleBox1>.</CircleBox1>
-        <MoreBox2>+</MoreBox2>
-        <CircleBox2>.</CircleBox2>
-        <MoreBox3>+</MoreBox3>
-        <CircleBox3>.</CircleBox3>
-
-        {isModalOpen && (
-          <ModalExercicio
-            CloseOnClick={CloseHandleModalToggle}
-            SuccessOnClick={SuccessHandleModalToggle}
-          />
-        )}
-      </Box>
-    </Grid>
-  );
+          </ButtonBox>
+        </BoxInfos>
+        <BoxPerson>
+        </BoxPerson>
+      </BoxInfoPerson>
+      <MoreBox1>
+        +
+      </MoreBox1>
+      <CircleBox1>
+        .
+      </CircleBox1>
+      <MoreBox2>
+        +
+      </MoreBox2>
+      <CircleBox2>
+        .
+      </CircleBox2>
+      <MoreBox3>
+        +
+      </MoreBox3>
+      <CircleBox3>
+        .
+      </CircleBox3>
+      
+      {isModalOpen && <ModalExercicio isOpen={isModalOpen} CloseOnClick={CloseHandleModalToggle} SuccessOnClick={SuccessHandleModalToggle}/>}
+    </Box>
+  </Grid>
+  )
 };
 
 export default Personagem;

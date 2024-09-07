@@ -1,4 +1,22 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
+
+const fadeOut = keyframes`
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+`;
 
 // Background que escurece a tela quando o modal é aberto
 export const ModalBackground = styled.div`
@@ -12,6 +30,10 @@ export const ModalBackground = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  animation: ${({ isOpen }) => (isOpen ? fadeIn : fadeOut)} 0.5s forwards;
+  opacity: ${({ isOpen }) => (isOpen ? '1' : '0')};
+  visibility: ${({ isOpen }) => (isOpen ? 'visible' : 'hidden')};
+  transition: visibility 0.5s, opacity 0.5s;
 `;
 
 // Container do modal
@@ -23,6 +45,8 @@ export const ModalContainer = styled.div`
   max-width: 500px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   position: relative;
+  animation: ${({ isOpen }) => (isOpen ? fadeIn : fadeOut)} 0.5s forwards;
+  transition: opacity 0.5s;
 `;
 
 // Conteúdo do modal
@@ -43,6 +67,7 @@ export const CloseButton = styled.button`
   border: none;
   font-size: 1.5em;
   cursor: pointer;
+
   &:hover {
     color: yellow;
   }
