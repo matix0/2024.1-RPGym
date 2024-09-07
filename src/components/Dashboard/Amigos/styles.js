@@ -13,6 +13,11 @@ const moveUpDown = keyframes`
   }
 `;
 
+export const Grid = styled.div`
+  grid-area: Amigos;
+  margin: auto;
+`;
+
 export const Caixa = styled.div`
     display: flex;
     flex-direction: column;
@@ -96,7 +101,7 @@ export const ButtonMore = styled.button`
         box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
     }
 
-    animation: ${moveUpDown} 4s infinite ease-in-out;
+    // animation: ${moveUpDown} 4s infinite ease-in-out;
 `
 
 export const FriendBox = styled.div`
@@ -114,7 +119,7 @@ export const GroupList = styled.ul`
   list-style: none;
   padding: 0;
   flex-direction: row;
-  margin-top: -15px;
+  margin-top: -0.8em;
 `;
 
 export const GroupItem = styled.li`
@@ -131,6 +136,7 @@ export const CircleBox1 = styled.div`
     z-index: 100;
     left: 7.5em;
     top: -0.5em;
+    cursor: default;
 `
 
 export const MoreBox1 = styled.div`
@@ -142,6 +148,7 @@ export const MoreBox1 = styled.div`
     z-index: 100;
     left: 11em;
     top: 1em;
+    cursor: default;
 `
 
 export const CircleBox2 = styled.div`
@@ -153,4 +160,5 @@ export const CircleBox2 = styled.div`
     z-index: 100;
     left: 2.4em;
     top: -0.2em;
+    cursor: default;
 `

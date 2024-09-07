@@ -183,6 +183,7 @@ export const MoreBox1 = styled.div`
   z-index: 100;
   right: 4.34em;
   top: 0.8em;
+  cursor: default;
 `;
 
 export const CircleBox1 = styled.div`
@@ -194,6 +195,7 @@ export const CircleBox1 = styled.div`
   z-index: 100;
   right: 2.6em;
   bottom: 0.7em;
+  cursor: default;
 `;
 
 export const MoreBox2 = styled.div`
@@ -205,6 +207,7 @@ export const MoreBox2 = styled.div`
   z-index: 100;
   right: 3.5em;
   top: 4.5em;
+  cursor: default;
 `;
 
 export const CircleBox2 = styled.div`
@@ -216,6 +219,7 @@ export const CircleBox2 = styled.div`
   z-index: 100;
   right: 1.8em;
   top: 2.2em;
+  cursor: default;
 `;
 
 export const MoreBox3 = styled.div`
@@ -227,6 +231,7 @@ export const MoreBox3 = styled.div`
   z-index: 100;
   right: 23em;
   top: 8em;
+  cursor: default;
 `;
 
 export const CircleBox3 = styled.div`
@@ -238,4 +243,5 @@ export const CircleBox3 = styled.div`
   z-index: 100;
   right: 6.1em;
   top: 2.1em;
+  cursor: default;
 `;
