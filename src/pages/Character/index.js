@@ -1,7 +1,7 @@
 import { Background, Posicao } from "./styles";
 import ModalRegisterCharacter from "../../components/ModalRegisterCharacter";
 
-const Login = () => {
+const Character = () => {
   return (
     <Background>
       <Posicao>
@@ -11,4 +11,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Character;

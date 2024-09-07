@@ -40,7 +40,7 @@ function ModalRegister() {
         </DivFormsBaixo>
         <Cadastrese
           onClick={() => {
-            window.open("/dashboard", "_self");
+            window.open("/character", "_self");
           }}
         >
           Cadastre-se
