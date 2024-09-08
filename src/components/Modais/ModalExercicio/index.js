@@ -10,8 +10,8 @@ import {
 } from "./styles";
 
 import { MdClose } from "react-icons/md";
-import TextAreaExercicio from "../TextAreaExercicio";
-import InputText from "../inputText";
+import TextAreaExercicio from "../../TextAreaExercicio";
+import InputText from "../../inputText";
 
 function ModalExercicio({isOpen, CloseOnClick, SuccessOnClick}) {
 
@@ -23,7 +23,7 @@ function ModalExercicio({isOpen, CloseOnClick, SuccessOnClick}) {
                 <MdClose />
             </CloseButton>
             <ModalContent>
-                <h1 style={{color: "#8000ff"}}>Registrar atividade</h1>
+                <h1 style={{color: "white"}}>Registrar atividade</h1>
                     <InputText placeholder="Nome da atividade" type="text" />
                     <CaloTem>
                         <Input placeholder="Calorias (Cal)" type="number" />

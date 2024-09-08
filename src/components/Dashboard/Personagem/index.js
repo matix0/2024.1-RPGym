@@ -27,7 +27,7 @@ import {
 } from "./styles";
 
 import { RiAddLine } from "react-icons/ri";
-import ModalExercicio from "../../ModalExercicio";
+import ModalExercicio from "../../Modais/ModalExercicio"
 
 const Personagem = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
