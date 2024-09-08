@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Caixa, BoxListPersons, Grid, BoxButton, DescriptionBox, Title, SubTitle, ButtonMore, FriendBox, FriendName, GroupItem, GroupList, CircleBox1, MoreBox1, CircleBox2 } from "./styles";
 
+import ModalColegas from "../../Modais/ModalColegas";
+
 const BancoFalsoPessoas = [
   { nome: "João da Silva", gruposComuns: ["Trabalho", "Academia"] },
   { nome: "Maria Jocinta", gruposComuns: ["Igreja", "Família"] },
@@ -19,7 +21,7 @@ const Amigos = () => {
   const handleScroll = () => {
     const scrollTop = boxListRef.current.scrollTop;
     if (scrollTop > 0) {
-      setFontSize(0.6); // Diminui a fonte quando faz o scroll para baixo
+      setFontSize(0.7); // Diminui a fonte quando faz o scroll para baixo
     } else {
       setFontSize(1); // Retorna ao tamanho normal quando volta ao topo
     }
@@ -34,6 +36,29 @@ const Amigos = () => {
       };
     }
   }, []);
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
+
+  const CloseHandleModalToggle = () => {
+    setIsClosing(true); // Inicia o fechamento
+    setTimeout(() => {
+      setIsModalOpen(false); // Fecha o modal após a animação
+      setIsClosing(false); // Reseta o estado de fechamento
+    }, 300); // Ajuste o tempo para o mesmo da duração da animação de saída
+  };
+
+  const SuccessHandleModalToggle = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setIsModalOpen(false);
+      setIsClosing(false);
+    }, 300);
+  };
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
 
   return (
     <Grid>
@@ -55,7 +80,7 @@ const Amigos = () => {
           ))}
         </BoxListPersons>
         <BoxButton>
-          <ButtonMore>
+          <ButtonMore onClick={openModal}>
             Mais detalhes
           </ButtonMore>
         </BoxButton>
@@ -68,6 +93,8 @@ const Amigos = () => {
         <CircleBox2>
           .
         </CircleBox2>
+
+        {isModalOpen && <ModalColegas isOpen={!isClosing} CloseOnClick={CloseHandleModalToggle} SuccessOnClick={SuccessHandleModalToggle}/>}
       </Caixa>
     </Grid>
   )

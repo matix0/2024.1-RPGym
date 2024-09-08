@@ -61,7 +61,7 @@ const Grupos = () => {
             {BancoFalsoGrupos.map((grupo, index) => (
                 <GroupBox key={index}>
                 <GroupName>{grupo.nome}</GroupName>
-                <GroupItem>{grupo.numeroDePessoas} membros</GroupItem>
+                <GroupItem>{grupo.numeroDePessoas} Membros</GroupItem>
                 </GroupBox>
             ))}
         </BoxListGroups>
