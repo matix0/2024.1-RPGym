@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import {
   Caixa,
   DescriptionBox,
@@ -12,34 +12,42 @@ import {
 } from "./styles";
 
 const ProgressCircle = ({ valorAtual, valorTotal }) => {
-  const radius = 30;
+  const radius = 2.5;
+  const strokeWidth = 0.8;
   const circumference = 2 * Math.PI * radius;
 
   const progressPercent = (valorAtual / valorTotal) * 100;
   const strokeDashoffset = circumference * (1 - progressPercent / 100);
 
   return (
-    <div className="progress-circle">
-      <svg width="80" height="80">
+    <div className="progress-circle" style={{ width: "5vw", height: "5vw" }}>
+      <svg
+        viewBox={`0 0 ${(radius + strokeWidth) * 2} ${
+          (radius + strokeWidth) * 2
+        }`}
+        style={{ width: "100%", height: "100%" }}
+      >
         <circle
-          cx="40"
-          cy="40"
+          cx={radius + strokeWidth}
+          cy={radius + strokeWidth}
           r={radius}
           stroke="#333"
-          strokeWidth="8"
+          strokeWidth={strokeWidth}
           fill="none"
         />
         <circle
-          cx="40"
-          cy="40"
+          cx={radius + strokeWidth}
+          cy={radius + strokeWidth}
           r={radius}
-          stroke="#6b00d6"
-          strokeWidth="8"
+          stroke="#fff"
+          strokeWidth={strokeWidth}
           fill="none"
           strokeDasharray={circumference}
           strokeDashoffset={strokeDashoffset}
           strokeLinecap="round"
-          transform="rotate(-90 40 40)"
+          transform={`rotate(-90 ${radius + strokeWidth} ${
+            radius + strokeWidth
+          })`}
         />
       </svg>
     </div>
@@ -59,8 +67,7 @@ const ChallengeContent = ({ title, coins, valorAtual, valorTotal }) => (
 );
 
 const Desafios = () => {
-  const [currentChallenge, setCurrentChallenge] = useState(0);
-  const scrollRef = useRef(null);
+  const [, setCurrentChallenge] = useState(0);
 
   const desafios = [
     {
@@ -73,7 +80,7 @@ const Desafios = () => {
       title: "1 Corrida Completa",
       coins: 10,
       valorAtual: 1,
-      valorTotal: 5,
+      valorTotal: 7,
     },
     {
       title: "3 Caminhadas Concluídas",
@@ -114,7 +121,7 @@ const Desafios = () => {
       <Caixa>
         <Title>Desafios em Andamento</Title>
         <ChallengesContainer>
-          <ScrollContainer ref={scrollRef} onScroll={handleScroll}>
+          <ScrollContainer onScroll={handleScroll}>
             <ScrollContent style={{ width: `${desafios.length * 100}%` }}>
               {desafios.map((desafio, index) => (
                 <ChallengeContent key={index} {...desafio} />

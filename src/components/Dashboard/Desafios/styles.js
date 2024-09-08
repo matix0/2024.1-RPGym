@@ -9,8 +9,8 @@ export const Caixa = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-  width: 31em;
-  height: 15em;
+  width: 33em;
+  height: 16em;
   border-color: white;
   border-style: solid;
   border-width: 0.5px;
@@ -23,7 +23,7 @@ export const DescriptionBox = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin-right: 10vw;
+  margin-right: 4vw;
 `;
 
 export const Title = styled.h3`
@@ -68,7 +68,7 @@ export const ScrollContainer = styled.div`
   height: 100%;
   scroll-behavior: smooth;
   scrollbar-color: #6b00d6 transparent;
-  scrollbar-width: 1vh;
+  scrollbar-width: auto;
 `;
 
 export const ScrollContent = styled.div`

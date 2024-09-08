@@ -7,7 +7,7 @@ const moveUpDown = keyframes`
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-5px); /* Sobe 10px */
+    transform: translateY(-7px); /* Sobe 10px */
   }
   100% {
     transform: translateY(0); /* Volta à posição inicial */
@@ -22,13 +22,14 @@ export const Grid = styled.div`
 export const Box = styled.div`
   display: flex;
   background-color: #8000ff;
-  width: 31em;
-  height: 15em;
+  width: 35em;
+  height: 18em;
   border-radius: 10px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 `;
 export const BoxInfos = styled.div`
   display: flex;
+  margin-left: 0.2em;
   width: 30em;
   height: 15em;
   border-radius: 10px;
@@ -39,8 +40,8 @@ export const BoxInfos = styled.div`
 export const BoxInfoPerson = styled.div`
   display: flex;
   flex-direction: row;
-  width: 30em;
-  height: 15em;
+  width: 33em;
+  height: 18em;
   border-radius: 10px;
   align-items: center;
   margin-left: -6.5em;
@@ -60,9 +61,9 @@ export const ApelidoBox = styled.div`
   width: auto;
   padding-left: 1em;
   padding-right: 1em;
-  height: 1.8em;
+  height: 2em;
   top: -1em;
-  left: 5.5em;
+  left: 3.5em;
 `;
 
 export const IMC = styled.div`
@@ -135,8 +136,9 @@ export const BoxPerson = styled.div`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  width: 20em;
-  height: 15em;
+  left: 1.2em;
+  width: 28em;
+  height: 19em;
   bottom: 1em;
 
   animation: ${moveUpDown} 4s infinite ease-in-out;
@@ -181,8 +183,8 @@ export const MoreBox1 = styled.div`
   font-weight: 700;
   font-size: 3em;
   z-index: 100;
-  right: 4.34em;
-  top: 0.8em;
+  right: 5.4em;
+  top: 0.6em;
   cursor: default;
 `;
 
@@ -193,7 +195,7 @@ export const CircleBox1 = styled.div`
   font-weight: 700;
   font-size: 7em;
   z-index: 100;
-  right: 2.6em;
+  right: 3em;
   bottom: 0.7em;
   cursor: default;
 `;
@@ -205,7 +207,7 @@ export const MoreBox2 = styled.div`
   font-weight: 700;
   font-size: 1.5em;
   z-index: 100;
-  right: 3.5em;
+  right: 3em;
   top: 4.5em;
   cursor: default;
 `;
@@ -217,8 +219,8 @@ export const CircleBox2 = styled.div`
   font-weight: 700;
   font-size: 3.5em;
   z-index: 100;
-  right: 1.8em;
-  top: 2.2em;
+  right: 1.5em;
+  top: 2.8em;
   cursor: default;
 `;
 
@@ -229,8 +231,8 @@ export const MoreBox3 = styled.div`
   font-weight: 700;
   font-size: 1.5em;
   z-index: 100;
-  right: 23em;
-  top: 8em;
+  right: 24.5em;
+  top: 7.5em;
   cursor: default;
 `;
 
