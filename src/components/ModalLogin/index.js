@@ -35,6 +35,7 @@ function ModalLogin() {
 
       if (response && response.token) {
         localStorage.setItem("token", response.token);
+        localStorage.setItem("id", response.id);
         setError(null); // Limpa a mensagem de erro
         navigate("/dashboard"); // Redireciona para o dashboard
       } else {
