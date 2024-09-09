@@ -171,6 +171,6 @@ export const BtnButton = styled.button`
   cursor: pointer;
 
   &:hover {
-    color: #ec5353;
+    color: #ca9012
   }
 `

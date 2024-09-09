@@ -263,11 +263,11 @@ function ModalGrupos({ isOpen, CloseOnClick }) {
                                 <div style={{marginRight:"-1em", overflow:"hidden", marginBottom:"1em"}}>
                                     <h2 style={{fontSize:"1em"}}>Detalhes do Grupo: {selectedGroup.nome}</h2>
                                     <p>Número de pessoas: {selectedGroup.numeroDePessoas}</p>
-                                    <h3>Integrantes:</h3>
-                                    <div style={{display:"flex", flexDirection:"column", overflowY:"auto", height:"100%"}}>
+                                    <h3 style={{marginBottom:"-0.01em"}}>Integrantes:</h3>
+                                    <div style={{display:"flex", flexDirection:"column", overflowY:"auto", flexShrink:"0", height:"90%", flexGrow: "1"}}>
                                         <ul>
                                             {getIntegrantesDoGrupo(selectedGroup.nome).map((pessoa, index) => (
-                                                <li key={index}>{pessoa.nome}</li>
+                                                <li key={index} style={{marginBottom:"1em"}}>{pessoa.nome}</li>
                                             ))}
                                         </ul>
                                     </div>
