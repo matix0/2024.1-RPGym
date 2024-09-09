@@ -13,11 +13,13 @@ import {
 } from "./styles";
 import InputText from "../inputText/index.js";
 import userService from "../../services/userService"; // Certifique-se de que este caminho está correto
+import { useNavigate } from "react-router-dom"; // Atualizado para a versão 6 do React Router
 
 function ModalLogin() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [error, setError] = useState(null);
+  const navigate = useNavigate(); // Usando o hook de navegação da versão 6
 
   const handleLogin = async () => {
     console.log("Email:", email); // Verifica se o email está sendo capturado
@@ -29,10 +31,12 @@ function ModalLogin() {
     }
 
     try {
-      const response = await userService(email, senha);
+      const response = await userService.login(email, senha);
+
       if (response && response.token) {
         localStorage.setItem("token", response.token);
-        window.open("/dashboard", "_self");
+        setError(null); // Limpa a mensagem de erro
+        navigate("/dashboard"); // Redireciona para o dashboard
       } else {
         setError("Email ou senha incorretos.");
       }

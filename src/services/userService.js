@@ -48,10 +48,8 @@ const getUser = async () => {
   }
 };
 const login = async (email, password) => {
-  const userId = "66d8a97dd39454bc2fad6771";
-
   try {
-    const response = await fetch(`http://localhost:3001/login/${userId}`, {
+    const response = await fetch(`http://localhost:3001/login/`, {
       method: "POST", // Mudando o método para POST
       headers: {
         "Content-Type": "application/json", // Indicando que o corpo da requisição é JSON
