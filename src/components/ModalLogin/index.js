@@ -34,8 +34,9 @@ function ModalLogin() {
       const response = await userService.login(email, senha);
 
       if (response && response.token) {
+        console.log(response);
         localStorage.setItem("token", response.token);
-        localStorage.setItem("id", response.id);
+        localStorage.setItem("userId", response.userId);
         setError(null); // Limpa a mensagem de erro
         navigate("/dashboard"); // Redireciona para o dashboard
       } else {
