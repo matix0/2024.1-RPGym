@@ -46,15 +46,20 @@ export const ModalContainer = styled.div`
   background-color: rgba(0, 0, 0, 0.6);
   border-style: solid;
   border-width: 1px;
-  padding: 2em;
+  padding-left: 2em;
+  padding-top: 2em;
+  padding-right: 2em;
   border-radius: 10px;
   width: 50%;
   max-width: 500px;
+  max-height: 80%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   position: relative;
+  display: flex;
+  flex-direction: column; /* Organiza o conteúdo em uma coluna */
   /* Aplica a animação dependendo do estado do modal */
   animation: ${({ isOpen }) => (isOpen ? scaleIn : scaleOut)} 0.3s forwards;
-  transform-origin: center; /* Define o ponto de origem como o centro */
+  transform-origin: center;
 `;
 
 // Conteúdo do modal
@@ -62,7 +67,16 @@ export const ModalContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start; /* Ajusta o conteúdo no início */
+  flex-grow: 1; /* Permite que o conteúdo cresça e ocupe o espaço restante */
+  overflow-y: auto; /* Habilita rolagem quando necessário */
+  margin-bottom: 1em;
+
+  ::-webkit-scrollbar {
+    display: none; /* Oculta a barra de rolagem no Webkit */
+  }
+
+  scrollbar-width: none; /* Oculta a barra de rolagem no Firefox */
 `;
 
 export const Dados = styled.div`
