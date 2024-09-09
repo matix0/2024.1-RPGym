@@ -13,10 +13,11 @@ import {
 } from "./styles";
 import { Input } from "../inputText/styles";
 import personagens from "../../assets/images/personagens.png";
+import userService from "../../services/userService";
 
 function ModalRegisterCharacter() {
-  const [peso, setPeso] = useState("");
-  const [altura, setAltura] = useState("");
+  const [weight, setPeso] = useState("");
+  const [height, setAltura] = useState("");
   const [selectedPersonagem, setSelectedPersonagem] = useState(null);
   const [error, setError] = useState("");
 
@@ -24,10 +25,12 @@ function ModalRegisterCharacter() {
     setSelectedPersonagem(personagem);
   };
 
-  const handleRegister = () => {
+  const handleRegister = async () => {
     // Validação dos campos
-    if (!peso || !altura || !selectedPersonagem) {
-      setError("Por favor, preencha todos os campos e selecione um personagem.");
+    if (!weight || !height || !selectedPersonagem) {
+      setError(
+        "Por favor, preencha todos os campos e selecione um personagem."
+      );
       return;
     }
 
@@ -36,13 +39,14 @@ function ModalRegisterCharacter() {
 
     // Armazena os dados (você pode salvar em localStorage ou em um backend aqui)
     const characterData = {
-      peso,
-      altura,
+      weight,
+      height,
       personagem: selectedPersonagem,
     };
 
     console.log(characterData); // Para verificar os dados no console
-
+    const userId = localStorage.getItem("userId");
+    await userService.updateUser(userId, characterData);
     // Redireciona para o dashboard
     window.open("/dashboard", "_blank");
   };
@@ -57,14 +61,14 @@ function ModalRegisterCharacter() {
         <DivFormsBaixo>
           <Input
             placeholder="Peso"
-            value={peso}
-            onChange={(e) => setPeso(e.target.value)} // Armazena o peso
+            value={weight}
+            onChange={(e) => setPeso(e.target.value)} // Armazena o weight
           />
           <Div></Div>
           <Input
             placeholder="Altura"
-            value={altura}
-            onChange={(e) => setAltura(e.target.value)} // Armazena a altura
+            value={height}
+            onChange={(e) => setAltura(e.target.value)} // Armazena a height
           />
         </DivFormsBaixo>
         <Subtitle>Seu personagem</Subtitle>
@@ -86,9 +90,7 @@ function ModalRegisterCharacter() {
         {/* Exibe mensagem de erro se houver */}
         {error && <p style={{ color: "red" }}>{error}</p>}
 
-        <Butao onClick={handleRegister}>
-          Vamos lá
-        </Butao>
+        <Butao onClick={handleRegister}>Vamos lá</Butao>
       </DivForms>
     </Container>
   );
