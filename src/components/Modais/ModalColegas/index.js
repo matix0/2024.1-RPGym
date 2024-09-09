@@ -38,6 +38,15 @@ const BancoFalsoPessoas = [
     { nome: "Fernanda Leandrina", gruposComuns: ["Viagem", "Esportes"] },
 ];
 
+const BancoFalsoPessoas1 = [
+    { nome: "João da Silva", gruposComuns: ["Trabalho", "Academia"] },
+    { nome: "Maria Jocinta", gruposComuns: ["Igreja", "Família"] },
+    { nome: "Pedro Alkimin", gruposComuns: ["Futebol", "Faculdade"] },
+    { nome: "Ana Barbosa", gruposComuns: ["Teatro", "Dança"] },
+    { nome: "Carlos de Andrade", gruposComuns: ["Música", "Culinária"] },
+    { nome: "Fernanda Leandrina", gruposComuns: ["Viagem", "Esportes"] },
+];
+
 function ModalColegas({ isOpen, CloseOnClick }) {
 
     const [fontSize, setFontSize] = useState(1); // Estado para controlar o tamanho da fonte
