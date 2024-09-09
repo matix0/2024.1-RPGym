@@ -9,7 +9,7 @@ function inputIdade(props) {
   opcoesIdade.push(i);
 
   return (
-    <InputIdade as="select" placeholder={props.placeholder} onChange={props.onChange}>
+    <InputIdade as="select" placeholder={props.placeholder} onChange={props.onChange} value={props.value}>
       <option value="">Idade</option>
       {opcoesIdade.map((idade) => (
         <option key={idade} value="idade">
