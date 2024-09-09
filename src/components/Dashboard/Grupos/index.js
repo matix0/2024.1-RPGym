@@ -88,7 +88,7 @@ const Grupos = () => {
             ))}
         </BoxListGroups>
         <BoxButton>
-          <ButtonMore onClick={openMdal}>
+          <ButtonMore onClick={openModal}>
             Mais detalhes
           </ButtonMore>
         </BoxButton>
