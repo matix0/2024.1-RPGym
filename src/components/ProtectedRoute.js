@@ -7,7 +7,7 @@ const ProtectedRoute = ({ element }) => {
   const currentPath = location.pathname;
 
   // Rotas públicas que não precisam de autenticação
-  const publicRoutes = ["/", "/register", "/character"];
+  const publicRoutes = ["/", "/Register", "/character"];
 
   const isPublicRoute = publicRoutes.includes(currentPath);
 

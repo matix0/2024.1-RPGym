@@ -29,15 +29,16 @@ import {
 import { RiAddLine } from "react-icons/ri";
 import ModalExercicio from "../../Modais/ModalExercicio";
 
-const Personagem = ({ userId }) => {
+const Personagem = ({ userId = localStorage.getItem("userId") }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const [imcValue, setImcValue] = useState();
   const [userName, setUser] = useState();
   const [peso, setPeso] = useState();
   const [altura, setAltura] = useState();
-  userId = "66df38d02726b0ccd9d74e9e";
+
   useEffect(() => {
+    console.log(userId);
     const fetchUser = async () => {
       const { name } = await userService.getUser(userId);
       // console.log(name);

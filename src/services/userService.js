@@ -1,5 +1,4 @@
-const getIMC = async () => {
-  const userId = "66d8a97dd39454bc2fad6771";
+const getIMC = async (userId) => {
   try {
     const response = await fetch(
       `http://localhost:3001/activities/${userId}/imc`
@@ -14,8 +13,7 @@ const getIMC = async () => {
     return null;
   }
 };
-const getUserMetrics = async () => {
-  const userId = "66d8a97dd39454bc2fad6771";
+const getUserMetrics = async (userId) => {
   try {
     const response = await fetch(`http://localhost:3001/users/${userId}`);
     if (!response.ok) {
@@ -106,9 +104,11 @@ const createUser = async (userData) => {
     throw error; // Repassa o erro para ser tratado onde a função é chamada
   }
 };
-const updateUser = async (userData) => {
+const updateUser = async (userId, userData) => {
+  console.log("userData");
+  console.log(userData);
   try {
-    const response = await fetch("http://localhost:3001/users/", {
+    const response = await fetch(`http://localhost:3001/users/${userId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -121,7 +121,7 @@ const updateUser = async (userData) => {
     if (!response.ok) {
       throw new Error(data.message || "Erro ao atualizar usuário.");
     }
-
+    console.log("dados atualizados:", data);
     return data;
   } catch (error) {
     console.error("Erro ao atualizar usuário:", error);

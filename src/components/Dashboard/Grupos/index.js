@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Caixa, BoxMore, BoxAdd, ButtonAdd, BoxListGroups, Grid, BoxButton, DescriptionBox, Title, SubTitle, ButtonMore, GroupBox, GroupName, GroupItem, CircleBox1, MoreBox1, CircleBox2 } from "./styles";
 import { RiAddLine } from "react-icons/ri";
+import ModalGrupos from "../../Modais/ModalGrupos";
 
 const BancoFalsoGrupos = [
     { nome: "Trabalho", numeroDePessoas: 8 },
@@ -16,12 +17,33 @@ const BancoFalsoGrupos = [
     { nome: "Viagem", numeroDePessoas: 6 },
     { nome: "Esportes", numeroDePessoas: 14 }
   ];
-  
 
 const Grupos = () => {
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
   const [fontSize, setFontSize] = useState(1); // Estado para controlar o tamanho da fonte
   const boxListRef = useRef(null); // Ref para o BoxListGroups
+
+  const CloseHandleModalToggle = () => {
+    setIsClosing(true); // Inicia o fechamento
+    setTimeout(() => {
+      setIsModalOpen(false); // Fecha o modal após a animação
+      setIsClosing(false); // Reseta o estado de fechamento
+    }, 300); // Ajuste o tempo para o mesmo da duração da animação de saída
+  };
+
+  const SuccessHandleModalToggle = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setIsModalOpen(false);
+      setIsClosing(false);
+    }, 300);
+  };
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
 
   // Função que atualiza o tamanho da fonte com base no scroll
   const handleScroll = () => {
@@ -66,7 +88,7 @@ const Grupos = () => {
             ))}
         </BoxListGroups>
         <BoxButton>
-          <ButtonMore>
+          <ButtonMore onClick={openModal}>
             Mais detalhes
           </ButtonMore>
         </BoxButton>
@@ -79,6 +101,8 @@ const Grupos = () => {
         <CircleBox2>
           .
         </CircleBox2>
+
+        {isModalOpen && <ModalGrupos isOpen={!isClosing} CloseOnClick={CloseHandleModalToggle} SuccessOnClick={SuccessHandleModalToggle}/>}
       </Caixa>
     </Grid>
   )
