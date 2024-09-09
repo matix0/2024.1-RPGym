@@ -6,7 +6,6 @@ import {
   ModalContent,
   ActiveButton,
   Input,
-  CaloTem,
 } from "./styles";
 
 import { MdClose } from "react-icons/md";
@@ -21,7 +20,11 @@ function ModalExercicio({ isOpen, CloseOnClick, SuccessOnClick }) {
 
   // Função para verificar se todos os campos estão preenchidos
   const areFieldsValid = () => {
-    return nomeAtividade.trim() !== "" && tempo.trim() !== "" && descricao.trim() !== "";
+    return (
+      nomeAtividade.trim() !== "" &&
+      tempo.trim() !== "" &&
+      descricao.trim() !== ""
+    );
   };
 
   // Função para lidar com o clique de "Registrar"

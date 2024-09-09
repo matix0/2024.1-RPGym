@@ -1,12 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import campeonato from "../assets/images/icones/campeonatos.png";
 import home from "../assets/images/icones/home.png";
 import ranking from "../assets/images/icones/ranking.png";
 import sobre from "../assets/images/icones/sobre.png";
 import usuario from "../assets/images/icones/usuario.png";
 import configuracoes from "../assets/images/icones/configuracoes.png";
+import ModalPerfil from "../components/Modais/ModalPerfil";
 
 const Sidebar = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
+
+  const CloseHandleModalToggle = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setIsModalOpen(false);
+      setIsClosing(false);
+    }, 300);
+  };
+
+  const SuccessHandleModalToggle = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setIsModalOpen(false);
+      setIsClosing(false);
+    }, 300);
+  };
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
   return (
     <div className="Sidebar">
       <div className="Botão-Loja">
@@ -41,9 +65,21 @@ const Sidebar = () => {
       <div className="Usuario">
         <div className="UsuarioTexto">Usuário</div>
         <div className="Configuracoes">
-          <img src={configuracoes} alt="Configurações" />
+          <img
+            style={{ cursor: "pointer" }}
+            onClick={openModal}
+            src={configuracoes}
+            alt="Configurações"
+          />
         </div>
       </div>
+      {isModalOpen && (
+        <ModalPerfil
+          isOpen={!isClosing}
+          CloseOnClick={CloseHandleModalToggle}
+          SuccessOnClick={SuccessHandleModalToggle}
+        />
+      )}
     </div>
   );
 };
