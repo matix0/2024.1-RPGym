@@ -47,5 +47,32 @@ const getUser = async () => {
     return { data: null };
   }
 };
+const login = async (email, password) => {
+  const userId = "66d8a97dd39454bc2fad6771";
+
+  try {
+    const response = await fetch(`http://localhost:3001/login/${userId}`, {
+      method: "POST", // Mudando o método para POST
+      headers: {
+        "Content-Type": "application/json", // Indicando que o corpo da requisição é JSON
+      },
+      body: JSON.stringify({
+        email, // Passando email e password no corpo
+        password,
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to log in");
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching user:", error);
+    return { data: null };
+  }
+};
+
 // eslint-disable-next-line import/no-anonymous-default-export
-export default { getIMC, getUser, getUserMetrics };
+export default { getIMC, getUser, getUserMetrics, login };
