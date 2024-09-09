@@ -8,9 +8,9 @@ import {
   DivDescricao,
   Cadastrese,
   DivFormsBaixo,
+  InputText1
 } from "./styles";
 import InputText from "../inputText";
-import InputIdade from "../inputIdade/index.js";
 
 function ModalRegister() {
 
@@ -53,7 +53,12 @@ function ModalRegister() {
             value={apelido}
             onChange={handleApelidoChange}
           />
-          <InputIdade placeholder="Idade" value={idade} onChange={(e) => setIdade(e.target.value)}/>
+          <InputText1
+            placeholder="Idade"
+            value={idade}
+            type="number"
+            onChange={(e) => setIdade(e.target.value)}
+          />
         </DivFormsBaixo>
         <Cadastrese
           onClick={handleCadastro}

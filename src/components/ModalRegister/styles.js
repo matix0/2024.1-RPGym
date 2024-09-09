@@ -68,3 +68,21 @@ export const SubSubSubSubtitle = styled.p`
   align-self: center;
   margin-bottom: 2vw;
 `;
+
+export const InputText1 = styled.input`
+  height: 6vh;
+  width: 1vw;
+  margin-left: 1vw;
+  border-radius: 0.5vw;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 0.9vw;
+  color: black;
+  margin-bottom: 0.8vw;
+  padding-left: 0.8vw;
+  border-width: 0.1vw;
+  border-style: solid;
+  border-color: #cccccc;
+  flex-grow: 1;
+`
