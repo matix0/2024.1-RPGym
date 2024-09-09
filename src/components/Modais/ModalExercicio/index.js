@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   ModalBackground,
   ModalContainer,
@@ -13,27 +13,63 @@ import { MdClose } from "react-icons/md";
 import TextAreaExercicio from "../../TextAreaExercicio";
 import InputText from "../../inputText";
 
-function ModalExercicio({isOpen, CloseOnClick, SuccessOnClick}) {
+function ModalExercicio({ isOpen, CloseOnClick, SuccessOnClick }) {
+  // Estados para armazenar os valores dos inputs
+  const [nomeAtividade, setNomeAtividade] = useState("");
+  const [tempo, setTempo] = useState("");
+  const [descricao, setDescricao] = useState("");
+
+  // Função para verificar se todos os campos estão preenchidos
+  const areFieldsValid = () => {
+    return nomeAtividade.trim() !== "" && tempo.trim() !== "" && descricao.trim() !== "";
+  };
+
+  // Função para lidar com o clique de "Registrar"
+  const handleRegistrar = () => {
+    if (areFieldsValid()) {
+      const atividade = {
+        nome: nomeAtividade,
+        tempo,
+        descricao,
+      };
+      SuccessOnClick(atividade); // Envia os dados para a função SuccessOnClick
+    } else {
+      alert("Preencha todos os campos antes de registrar!");
+    }
+  };
 
   return (
     <div>
-        <ModalBackground isOpen={isOpen}>
-            <ModalContainer isOpen={isOpen}>
-            <CloseButton onClick={CloseOnClick}>
-                <MdClose />
-            </CloseButton>
-            <ModalContent>
-                <h1 style={{color: "white"}}>Registrar atividade</h1>
-                    <InputText placeholder="Nome da atividade" type="text" />
-                    <CaloTem>
-                        <Input placeholder="Calorias (Cal)" type="number" />
-                        <Input placeholder="Tempo (min)" type="number" />
-                    </CaloTem>
-                    <TextAreaExercicio placeholder="Descrição da atividade" cols={22} rows={10}/>
-                <ActiveButton onClick={SuccessOnClick}>Registrar</ActiveButton>
-            </ModalContent>
-            </ModalContainer>
-        </ModalBackground>
+      <ModalBackground isOpen={isOpen}>
+        <ModalContainer isOpen={isOpen}>
+          <CloseButton onClick={CloseOnClick}>
+            <MdClose />
+          </CloseButton>
+          <ModalContent>
+            <h1 style={{ color: "white" }}>Registrar atividade</h1>
+            <InputText
+              placeholder="Nome da atividade"
+              type="text"
+              value={nomeAtividade}
+              onChange={(e) => setNomeAtividade(e.target.value)}
+            />
+            <Input
+              placeholder="Tempo em minutos"
+              type="number"
+              value={tempo}
+              onChange={(e) => setTempo(e.target.value)}
+            />
+            <TextAreaExercicio
+              placeholder="Descrição da atividade"
+              cols={21}
+              rows={10}
+              value={descricao}
+              onChange={(e) => setDescricao(e.target.value)}
+            />
+            <ActiveButton onClick={handleRegistrar}>Registrar</ActiveButton>
+          </ModalContent>
+        </ModalContainer>
+      </ModalBackground>
     </div>
   );
 }

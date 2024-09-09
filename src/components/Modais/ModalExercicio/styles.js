@@ -120,7 +120,6 @@ export const ActiveButton = styled.button`
 
 export const Input = styled.input`
   height: 6vh;
-  width: 9em;
   border-radius: 0.5vw;
   font-family: "Poppins";
   font-style: normal;
