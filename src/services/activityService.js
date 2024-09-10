@@ -14,31 +14,15 @@ const getActivityDaysByUser = async (userId) => {
   try {
     const activities = await Activity.find({ user: userId });
 
-    // Organize as atividades por dia, formatando a data para DD/MM/YYYY
-    const activitiesByDay = activities.reduce((acc, activity) => {
-      const formattedDate = moment(activity.date).format("DD/MM/YYYY");
+    // Mapeia as atividades para o formato [[dd/mm/yyyy, duration, activityName]]
+    const activityDetails = activities.map((activity) => [
+      moment(activity.date).format("DD/MM/YYYY"), // Formata a data
+      activity.duration, // Duração da atividade
+      activity.activityName, // Nome da atividade
+      activity.description, // Descrição da atividade
+    ]);
 
-      if (!acc[formattedDate]) {
-        acc[formattedDate] = [];
-      }
-
-      // Adiciona a atividade com os parâmetros do esquema
-      acc[formattedDate].push({
-        activityName: activity.activityName,
-        duration: activity.duration,
-        description: activity.description,
-      });
-
-      return acc;
-    }, {});
-
-    const days = Object.keys(activitiesByDay);
-
-    return {
-      days: days, // Lista de dias
-      count: days.length, // Contagem de dias únicos
-      activitiesByDay, // Atividades organizadas por dia
-    };
+    return activityDetails; // Retorna a lista no formato desejado
   } catch (error) {
     console.error("Error fetching activities:", error);
     return { error: error.message };
