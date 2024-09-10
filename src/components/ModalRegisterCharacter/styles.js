@@ -26,7 +26,7 @@ export const Butao = styled.button`
     rgba(188, 0, 254, 1) 100%
   );
   font-family: "Poppins";
-  font-weight: bold;
+  font-weight: 500;
   font-size: 1vw;
   color: white;
   border: none;
@@ -53,17 +53,22 @@ export const DivDescricao = styled.div`
 
 export const DivFormsBaixo = styled.div`
   display: flex;
+  gap: 2em;
 `;
 
 export const Subtitle = styled.p`
   font-family: "Poppins", inherit;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 1.2vw;
 `;
 
 export const ImagemWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
-  width: 100%; /* Ajuste conforme necessário */
+  left: 4.2em;
+  width: 20em; /* Ajuste conforme necessário */
   max-width: 100%; /* Ou o tamanho desejado */
   img {
     width: 100%;
@@ -85,3 +90,21 @@ export const PersonagemDiv = styled.div`
     border-radius: 1.5vw;
   }
 `;
+
+export const Input1 = styled.input`
+  height: 6vh;
+  width: 1em;
+  grid-row: 10px;
+  border-radius: 0.5vw;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 0.9vw;
+  color: black;
+  margin-bottom: 0.8vw;
+  padding-left: 0.8vw;
+  border-width: 0.1vw;
+  border-style: solid;
+  border-color: #cccccc;
+  flex-grow: 1;
+`
