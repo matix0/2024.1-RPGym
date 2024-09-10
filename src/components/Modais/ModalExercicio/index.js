@@ -37,7 +37,7 @@ function ModalExercicio({ isOpen, CloseOnClick, SuccessOnClick }) {
         description: descricao,
       };
       activityService.registerActivity(atividade);
-      // SuccessOnClick(atividade); // Envia os dados para a função SuccessOnClick
+      SuccessOnClick(atividade); // Envia os dados para a função SuccessOnClick
     } else {
       alert("Preencha todos os campos antes de registrar!");
     }
