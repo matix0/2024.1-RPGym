@@ -42,9 +42,12 @@ const Personagem = ({ userId = localStorage.getItem("userId") }) => {
   const [personagemType, setPersonagemType] = useState(null); // 1 para masculino, 2 para feminino
 
   useEffect(() => {
+    console.log(userId);
     const fetchUser = async () => {
       const { name } = await userService.getUser(userId);
+      console.log(name);
       setUser(name);
+      // console.log(user);
     };
 
     const fetchIMC = async () => {
@@ -54,6 +57,7 @@ const Personagem = ({ userId = localStorage.getItem("userId") }) => {
 
     const fetchMetrics = async () => {
       const { peso, altura } = await userService.getUserMetrics(userId);
+      // console.log(peso, altura);
       setPeso(peso);
       setAltura(altura);
     };

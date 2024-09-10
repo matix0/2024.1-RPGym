@@ -22,6 +22,9 @@ function ModalLogin() {
   const navigate = useNavigate(); // Usando o hook de navegação da versão 6
 
   const handleLogin = async () => {
+    console.log("Email:", email); // Verifica se o email está sendo capturado
+    console.log("Senha:", senha); // Verifica se a senha está sendo capturada
+
     if (!email || !senha) {
       setError("Por favor, preencha todos os campos.");
       return;
@@ -31,6 +34,7 @@ function ModalLogin() {
       const response = await userService.login(email, senha);
 
       if (response && response.token) {
+        console.log(response);
         localStorage.setItem("token", response.token);
         localStorage.setItem("userId", response.userId);
         setError(null); // Limpa a mensagem de erro

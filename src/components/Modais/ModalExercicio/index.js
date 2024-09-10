@@ -30,6 +30,7 @@ function ModalExercicio({ isOpen, CloseOnClick, SuccessOnClick }) {
 
   // Função para lidar com o clique de "Registrar"
   const handleRegistrar = () => {
+    console.log("Registrar", nomeAtividade, tempo, descricao);
     if (areFieldsValid()) {
       const atividade = {
         activityName: nomeAtividade,
