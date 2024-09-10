@@ -54,7 +54,6 @@ function ModalCriarGrupos({ isOpen, CloseOnClick, SuccessOnClick }) {
         users: [userId],
         joinCode: generateJoinCode(),
       };
-      console.log(Grupo);
       groupService.createGroup(Grupo);
       SuccessOnClick(Grupo); // Envia os dados para a função SuccessOnClick
       // window.location.reload();

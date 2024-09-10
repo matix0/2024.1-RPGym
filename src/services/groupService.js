@@ -2,10 +2,8 @@ const baseUrl = "https://rpgym-backend-862d64fb9e62.herokuapp.com/";
 
 const getGroups = async () => {
   const userId = localStorage.getItem("userId");
-  console.log(userId);
   try {
     const response = await fetch(`${baseUrl}group/user/${userId}/groups`);
-    // console.log(response);
     if (!response.ok) {
       throw new Error("Failed to fetch groups");
     }
@@ -88,8 +86,6 @@ const deleteGroup = async (groupId) => {
 
 const joinGroupByCode = async (joinCode) => {
   const userId = localStorage.getItem("userId");
-  console.log(userId);
-  console.log(joinCode);
   try {
     const response = await fetch(`${baseUrl}group/${userId}/join/`, {
       method: "POST",

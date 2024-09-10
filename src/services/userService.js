@@ -35,7 +35,6 @@ const getUser = async (userId) => {
       throw new Error("Failed to fetch user");
     }
     const data = await response.json();
-    // console.log(data);
 
     return { name: data.name, id: data.id, personagem: data.personagem };
   } catch (error) {
@@ -50,7 +49,6 @@ const getUserByEmail = async (email) => {
       throw new Error("Failed to fetch user");
     }
     const data = await response.json();
-    // console.log(data);
 
     return { id: data.id };
   } catch (error) {
@@ -104,8 +102,6 @@ const createUser = async (userData) => {
   }
 };
 const updateUser = async (userId, userData) => {
-  console.log("userData");
-  console.log(userData);
   try {
     const response = await fetch(`${baseUrl}users/${userId}`, {
       method: "PATCH",
@@ -120,7 +116,6 @@ const updateUser = async (userId, userData) => {
     if (!response.ok) {
       throw new Error(data.message || "Erro ao atualizar usuário.");
     }
-    console.log("dados atualizados:", data);
     return data;
   } catch (error) {
     console.error("Erro ao atualizar usuário:", error);

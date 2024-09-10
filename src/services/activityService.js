@@ -2,7 +2,6 @@ const baseUrl = "https://rpgym-backend-862d64fb9e62.herokuapp.com/";
 
 const registerActivity = async (requestBody) => {
   try {
-    console.log(JSON.stringify(requestBody));
     const userId = localStorage.getItem("userId");
     const response = await fetch(`${baseUrl}activities/${userId}`, {
       method: "POST",
@@ -12,7 +11,6 @@ const registerActivity = async (requestBody) => {
       },
       body: JSON.stringify(requestBody),
     });
-    console.log(response);
     if (!response.ok) {
       throw new Error("Failed to create activity");
     }
@@ -26,14 +24,11 @@ const registerActivity = async (requestBody) => {
 const getActivities = async () => {
   try {
     const userId = localStorage.getItem("userId");
-    console.log(userId);
     const response = await fetch(`${baseUrl}activities/${userId}`);
-    console.log(response);
     if (!response) {
       throw new Error("Failed to fetch user");
     }
     const data = await response.json();
-    // console.log(data);
 
     return { data };
   } catch (error) {

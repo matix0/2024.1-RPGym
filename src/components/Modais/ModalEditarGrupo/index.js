@@ -33,10 +33,8 @@ function ModalEditarGrupo({ isOpen, CloseOnClick, SuccessOnClick }) {
     if (confirmAction()) {
       groupService.removeUserFromGroup();
       // Execute a ação se o usuário confirmar
-      console.log("Ação confirmada.");
     } else {
       // Cancelar a ação
-      console.log("Ação cancelada.");
     }
   };
 
