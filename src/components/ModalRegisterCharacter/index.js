@@ -59,8 +59,6 @@ function ModalRegisterCharacter() {
       height: heightNum,
       personagem: selectedPersonagem,
     };
-
-    console.log(characterData); // Para verificar os dados no console
     const userId = localStorage.getItem("userId");
     await userService.updateUser(userId, characterData);
     // Redireciona para o dashboard

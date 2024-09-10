@@ -104,8 +104,6 @@ const createUser = async (userData) => {
   }
 };
 const updateUser = async (userId, userData) => {
-  console.log("userData");
-  console.log(userData);
   try {
     const response = await fetch(`${baseUrl}users/${userId}`, {
       method: "PATCH",
@@ -120,7 +118,6 @@ const updateUser = async (userId, userData) => {
     if (!response.ok) {
       throw new Error(data.message || "Erro ao atualizar usuário.");
     }
-    console.log("dados atualizados:", data);
     return data;
   } catch (error) {
     console.error("Erro ao atualizar usuário:", error);

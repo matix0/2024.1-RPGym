@@ -24,9 +24,6 @@ function ModalHistorico({ isOpen, CloseOnClick }) {
     setError(null); // Limpa o estado de erro antes de fazer a chamada
     try {
       const response = await activityService.getActivities();
-      console.log("=====================");
-      console.log(response);
-      console.log(response.data);
       if (response && response.data) {
         setAtividades(response.data); // Armazena as atividades no estado
       } else {
@@ -43,8 +40,6 @@ function ModalHistorico({ isOpen, CloseOnClick }) {
   useEffect(() => {
     if (isOpen) {
       fetchActivities();
-      console.log("*******************");
-      console.log(atividades);
     }
   }, [isOpen]);
 
