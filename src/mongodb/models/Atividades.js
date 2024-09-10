@@ -19,6 +19,10 @@ const activitySchema = new mongoose.Schema({
     required: true,
     default: Date.now,
   },
+  description: {
+    type: String,
+    required: false,
+  },
 });
 
 const Activity = mongoose.model("activities", activitySchema);

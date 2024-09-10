@@ -101,7 +101,7 @@ const getUserByEmailController = async (req, res) => {
 const updateUserController = async (req, res) => {
   const { id } = req.params;
   const updateData = req.body;
-
+  console.log(req);
   try {
     const user = await updateUser(id, updateData);
 
