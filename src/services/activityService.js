@@ -11,15 +11,38 @@ const registerActivity = async (userId, activityData) => {
 };
 
 const getActivityDaysByUser = async (userId) => {
-  const activities = await Activity.find({ user: userId });
+  try {
+    const activities = await Activity.find({ user: userId });
 
-  const days = new Set(
-    activities.map((activity) => moment(activity.date).format("DD/MM/YYYY"))
-  );
-  return {
-    days: Array.from(days),
-    count: days.size,
-  };
+    // Organize as atividades por dia, formatando a data para DD/MM/YYYY
+    const activitiesByDay = activities.reduce((acc, activity) => {
+      const formattedDate = moment(activity.date).format("DD/MM/YYYY");
+
+      if (!acc[formattedDate]) {
+        acc[formattedDate] = [];
+      }
+
+      // Adiciona a atividade com os parâmetros do esquema
+      acc[formattedDate].push({
+        activityName: activity.activityName,
+        duration: activity.duration,
+        description: activity.description,
+      });
+
+      return acc;
+    }, {});
+
+    const days = Object.keys(activitiesByDay);
+
+    return {
+      days: days, // Lista de dias
+      count: days.length, // Contagem de dias únicos
+      activitiesByDay, // Atividades organizadas por dia
+    };
+  } catch (error) {
+    console.error("Error fetching activities:", error);
+    return { error: error.message };
+  }
 };
 
 const calculateIMC = async (userId) => {
