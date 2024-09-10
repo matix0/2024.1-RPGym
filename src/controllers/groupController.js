@@ -83,12 +83,13 @@ const removeUser = async (req, res) => {
     });
   }
 };
+
 const joinGroupByCode = async (req, res) => {
   try {
-    console.log("sdigjnsjhdfbgsdujhbfgn");
-    const { joinCode } = req.body;
-    const userId = req.user._id; // Assumindo autenticação
+    const { joinCode } = req.body; // Código de adesão fornecido no corpo da requisição
+    const userId = req.params.userId; // ID do usuário fornecido na URL
 
+    // Chame o serviço para adicionar o usuário ao grupo
     const result = await groupService.joinGroupByCode(userId, joinCode);
 
     if (result.success) {

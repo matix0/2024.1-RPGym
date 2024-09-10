@@ -13,42 +13,6 @@ const getAllGroups = async () => {
   return await Group.find().populate("users creator");
 };
 
-const joinGroupByCode = async (userId, joinCode) => {
-  try {
-    // 1. Procurar o grupo pelo código de ingresso
-    const group = await Group.findOne({ joinCode });
-
-    if (!group) {
-      return {
-        success: false,
-        message: "Grupo não encontrado com este código.",
-      };
-    }
-
-    // 2. Verificar se o usuário já faz parte do grupo
-    const isUserInGroup = group.users.some(
-      (user) => user.toString() === userId.toString()
-    );
-
-    if (isUserInGroup) {
-      return { success: false, message: "Você já faz parte deste grupo." };
-    }
-
-    // 3. Adicionar o usuário ao grupo
-    group.users.push(userId);
-    await group.save();
-
-    return {
-      success: true,
-      message: "Usuário adicionado ao grupo com sucesso.",
-      group,
-    };
-  } catch (error) {
-    console.error("Erro no serviço de grupo:", error);
-    return { success: false, message: "Erro ao processar a requisição." };
-  }
-};
-
 const updateGroup = async (groupId, updateData) => {
   return await Group.findByIdAndUpdate(groupId, updateData, { new: true });
 };
@@ -88,7 +52,40 @@ const getAllGroupsUser = async (userId) => {
     throw new Error("Erro ao buscar grupos do usuário");
   }
 };
+const joinGroupByCode = async (userId, joinCode) => {
+  try {
+    // Encontre o grupo com o joinCode fornecido
+    const group = await Group.findOne({ joinCode });
 
+    if (!group) {
+      return {
+        success: false,
+        message: "Código de adesão inválido",
+      };
+    }
+
+    // Verifique se o usuário já está no grupo
+    if (group.users.includes(userId)) {
+      return {
+        success: false,
+        message: "O usuário já faz parte deste grupo",
+      };
+    }
+
+    // Adicione o usuário ao grupo
+    group.users.push(userId);
+    await group.save();
+
+    return {
+      success: true,
+      message: "Usuário adicionado ao grupo com sucesso",
+      group,
+    };
+  } catch (error) {
+    console.error("Erro ao adicionar o usuário ao grupo:", error);
+    throw new Error("Erro ao adicionar o usuário ao grupo");
+  }
+};
 export default {
   removeUser,
   createGroup,
