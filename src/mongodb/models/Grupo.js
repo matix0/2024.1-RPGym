@@ -21,6 +21,10 @@ const groupSchema = new mongoose.Schema({
     ref: "User",
     required: true,
   },
+  joinCode: {
+    type: String,
+    required: true,
+  },
 });
 
 const Group = mongoose.model("Group", groupSchema);

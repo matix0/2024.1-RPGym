@@ -70,6 +70,7 @@ const deleteGroup = async (req, res) => {
     });
   }
 };
+
 const removeUser = async (req, res) => {
   try {
     const { groupId, userId } = req.params;
@@ -82,6 +83,45 @@ const removeUser = async (req, res) => {
     });
   }
 };
+const joinGroupByCode = async (req, res) => {
+  try {
+    console.log("sdigjnsjhdfbgsdujhbfgn");
+    const { joinCode } = req.body;
+    const userId = req.user._id; // Assumindo autenticação
+
+    const result = await groupService.joinGroupByCode(userId, joinCode);
+
+    if (result.success) {
+      return res
+        .status(200)
+        .json({ message: result.message, group: result.group });
+    } else {
+      return res.status(400).json({ message: result.message });
+    }
+  } catch (error) {
+    console.error("Erro ao juntar grupo:", error);
+    return res.status(500).json({ message: "Erro no servidor" });
+  }
+};
+
+const getAllGroupsUser = async (req, res) => {
+  try {
+    const userId = req.params.userId; // Pegamos o userId via parâmetros da URL
+    const result = await groupService.getAllGroupsUser(userId);
+
+    if (result.success) {
+      return res.status(200).json(result.groups);
+    } else {
+      return res.status(404).json({ message: result.message });
+    }
+  } catch (error) {
+    return res.status(500).json({
+      message: "Erro ao buscar grupos do usuário",
+      error: error.message,
+    });
+  }
+};
+
 export default {
   createGroup,
   getGroupById,
@@ -89,4 +129,6 @@ export default {
   updateGroup,
   deleteGroup,
   removeUser,
+  joinGroupByCode,
+  getAllGroupsUser,
 };
