@@ -20,27 +20,32 @@ import {
 } from "./styles";
 import { RiAddLine } from "react-icons/ri";
 import ModalGrupos from "../../Modais/ModalGrupos";
-
-const BancoFalsoGrupos = [
-  { nome: "Trabalho", numeroDePessoas: 8 },
-  { nome: "Academia", numeroDePessoas: 5 },
-  { nome: "Igreja", numeroDePessoas: 12 },
-  { nome: "Família", numeroDePessoas: 6 },
-  { nome: "Futebol", numeroDePessoas: 10 },
-  { nome: "Faculdade", numeroDePessoas: 9 },
-  { nome: "Teatro", numeroDePessoas: 7 },
-  { nome: "Dança", numeroDePessoas: 4 },
-  { nome: "Música", numeroDePessoas: 11 },
-  { nome: "Culinária", numeroDePessoas: 3 },
-  { nome: "Viagem", numeroDePessoas: 6 },
-  { nome: "Esportes", numeroDePessoas: 14 },
-];
+import ModalOpcGrupo from "../../Modais/ModalOpcGrupo";
+import groupService from "../../../services/groupService";
 
 const Grupos = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen2, setIsModalOpen2] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
+  const [isClosing2, setIsClosing2] = useState(false);
   const [fontSize, setFontSize] = useState(1); // Estado para controlar o tamanho da fonte
   const boxListRef = useRef(null); // Ref para o BoxListGroups
+  const [gruposUsuario, setGruposUsuario] = useState(null); // Estado para armazenar os grupos
+
+  useEffect(() => {
+    const fetchGroups = async () => {
+      const response = await groupService.getGroups(); // Chama o serviço
+      console.log(response); // Verifica a estrutura dos dados retornados
+      setGruposUsuario(response); // Atualiza o estado com os grupos recebidos
+    };
+  
+    fetchGroups(); // Chama a função para buscar os grupos
+  }, []);
+  
+  // Função para calcular o número de membros no grupo
+  const getNumeroDeMembros = (grupo) => {
+    return grupo.users.length;
+  };
 
   const CloseHandleModalToggle = () => {
     setIsClosing(true); // Inicia o fechamento
@@ -50,16 +55,20 @@ const Grupos = () => {
     }, 300); // Ajuste o tempo para o mesmo da duração da animação de saída
   };
 
-  const SuccessHandleModalToggle = () => {
-    setIsClosing(true);
+  const CloseHandleModalToggle2 = () => {
+    setIsClosing2(true); // Inicia o fechamento
     setTimeout(() => {
-      setIsModalOpen(false);
-      setIsClosing(false);
-    }, 300);
+      setIsModalOpen2(false); // Fecha o modal após a animação
+      setIsClosing2(false); // Reseta o estado de fechamento
+    }, 300); // Ajuste o tempo para o mesmo da duração da animação de saída
   };
 
   const openModal = () => {
     setIsModalOpen(true);
+  };
+
+  const openModal2 = () => {
+    setIsModalOpen2(true);
   };
 
   // Função que atualiza o tamanho da fonte com base no scroll
@@ -70,6 +79,22 @@ const Grupos = () => {
     } else {
       setFontSize(1); // Retorna ao tamanho normal quando volta ao topo
     }
+  };
+
+  const SuccessHandleModalToggle = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setIsModalOpen(false);
+      setIsClosing(false);
+    }, 300);
+  };
+
+  const SuccessHandleModalToggle2 = () => {
+    setIsClosing2(true);
+    setTimeout(() => {
+      setIsModalOpen2(false);
+      setIsClosing2(false);
+    }, 300);
   };
 
   useEffect(() => {
@@ -96,18 +121,22 @@ const Grupos = () => {
             <SubTitle>Veja os seus grupos!</SubTitle>
           </DescriptionBox>
           <BoxAdd>
-            <ButtonAdd>
+            <ButtonAdd onClick={openModal2}>
               <RiAddLine size={"100%"} />
             </ButtonAdd>
           </BoxAdd>
         </BoxMore>
         <BoxListGroups ref={boxListRef}>
-          {BancoFalsoGrupos.map((grupo, index) => (
-            <GroupBox key={index}>
-              <GroupName>{grupo.nome}</GroupName>
-              <GroupItem>{grupo.numeroDePessoas} Membros</GroupItem>
+          {gruposUsuario && Array.isArray(gruposUsuario.data) ? (
+          gruposUsuario.data.map((grupo) => (
+            <GroupBox key={grupo._id}>
+              <GroupName>{grupo.name}</GroupName>
+              <GroupItem>{getNumeroDeMembros(grupo)} Membros</GroupItem>
             </GroupBox>
-          ))}
+          ))
+          ) : (
+            <p style={{fontStyle:"italic"}}>Ops, você não possui nenhum grupo!</p> // Caso os dados não sejam um array ou estejam vazios
+          )}
         </BoxListGroups>
         <BoxButton>
           <ButtonMore onClick={openModal}>Mais detalhes</ButtonMore>
@@ -121,6 +150,13 @@ const Grupos = () => {
             isOpen={!isClosing}
             CloseOnClick={CloseHandleModalToggle}
             SuccessOnClick={SuccessHandleModalToggle}
+          />
+        )}
+        {isModalOpen2 && (
+          <ModalOpcGrupo
+            isOpen={!isClosing2}
+            CloseOnClick={CloseHandleModalToggle2}
+            SuccessOnClick={SuccessHandleModalToggle2}
           />
         )}
       </Caixa>

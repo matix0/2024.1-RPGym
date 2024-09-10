@@ -45,7 +45,7 @@ export const ModalBackground = styled.div`
 export const ModalContainer = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.9);
   border-style: solid;
   border-width: 1px;
   padding-left: 2em;
@@ -172,5 +172,58 @@ export const BtnButton = styled.button`
 
   &:hover {
     color: #ca9012
+  }
+`
+
+export const BtnButton2 = styled.button`
+  display: flex;
+  position: absolute;
+  flex-shrink: 0;
+  color: white;
+  z-index: 10;
+  top: 1.35em;
+  right: 3.9em;
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+
+  &:hover {
+    color: #ec5353
+  }
+`
+
+export const BtnButton3 = styled.button`
+  display: flex;
+  position: absolute;
+  flex-shrink: 0;
+  color: white;
+  z-index: 10;
+  top: 1.35em;
+  right: 5.4em;
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+
+  &:hover {
+    color: #ca9012
+  }
+`
+
+export const BtnButton4 = styled.button`
+  display: flex;
+  flex-shrink: 0;
+  color: white;
+  z-index: 10;
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  opacity: 0;
+
+  &:hover {
+    color: #ca9012;
+    opacity: 100;
   }
 `

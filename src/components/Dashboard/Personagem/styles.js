@@ -1,5 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import MalePerson from "../../../assets/images/Personagens/MalePerson.png";
+import FemalePerson from "../../../assets/images/Personagens/FemalePerson.png"
 
 // Defina a animação de subir e descer
 const moveUpDown = keyframes`
@@ -21,12 +22,14 @@ export const Grid = styled.div`
 
 export const Box = styled.div`
   display: flex;
+  position: relative;
   background-color: #8000ff;
   width: 35em;
   height: 18em;
   border-radius: 10px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 `;
+
 export const BoxInfos = styled.div`
   display: flex;
   margin-left: 0.2em;
@@ -44,13 +47,13 @@ export const BoxInfoPerson = styled.div`
   height: 18em;
   border-radius: 10px;
   align-items: center;
-  margin-left: -6.5em;
+  justify-content: center;
 `;
 
 export const ApelidoBox = styled.div`
   display: flex;
   border-color: black;
-  position: relative;
+  position: absolute;
   background-color: #8000ff;
   border-radius: 20px;
   border-color: black;
@@ -59,13 +62,12 @@ export const ApelidoBox = styled.div`
   justify-content: center;
   align-items: center;
   min-width: 4.5vw;
-  max-width: 4.5vw;
   text-overflow: ellipsis " [..]";
   padding-left: 1em;
   padding-right: 1em;
   height: 2em;
   top: -1em;
-  left: 3.5em;
+  left: 5.4em;
 `;
 
 export const IMC = styled.div`
@@ -128,12 +130,14 @@ export const AlturaBox = styled.div`
   flex-direction: column;
   justify-items: center;
   align-items: center;
+  margin-left: 1em;
 `;
 
+//1 male - 2 female
 export const BoxPerson = styled.div`
   display: flex;
   position: relative;
-  background-image: url(${MalePerson});
+  background-image: url(${(props) => props.personagemType === 1 ? MalePerson : FemalePerson}); // Usa a imagem baseada no tipo
   border-radius: 10px;
   background-size: cover;
   background-position: center;
@@ -148,6 +152,9 @@ export const BoxPerson = styled.div`
 
 export const ButtonBox = styled.div`
   display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.5em;
 `;
 
 export const ActiveButton = styled.button`
@@ -178,6 +185,10 @@ export const ActiveButton = styled.button`
   }
 `;
 
+export const Historico = styled.button`
+  color: #8000ff;
+`;
+
 export const MoreBox1 = styled.div`
   display: flex;
   position: relative;
@@ -201,6 +212,8 @@ export const CircleBox1 = styled.div`
   bottom: 0.7em;
   cursor: default;
 `;
+
+export const HistoryButton = styled.button``;
 
 export const MoreBox2 = styled.div`
   display: flex;

@@ -37,7 +37,7 @@ const getUser = async (userId) => {
     const data = await response.json();
     // console.log(data);
 
-    return { name: data.name, id: data.id };
+    return { name: data.name, id: data.id, personagem: data.personagem };
   } catch (error) {
     console.error("Error fetching user:", error);
     return { data: null };
@@ -108,7 +108,7 @@ const updateUser = async (userId, userData) => {
   console.log(userData);
   try {
     const response = await fetch(`${baseUrl}users/${userId}`, {
-      method: "PUT",
+      method: "PATCH",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${localStorage.getItem("token")}`,

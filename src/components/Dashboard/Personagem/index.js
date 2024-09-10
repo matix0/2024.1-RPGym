@@ -28,6 +28,8 @@ import {
 } from "./styles";
 import { RiAddLine } from "react-icons/ri";
 import ModalExercicio from "../../Modais/ModalExercicio";
+import ModalHistorico from "../../Modais/ModalHistorico";
+import { MdHistory } from "react-icons/md";
 
 const Personagem = ({ userId = localStorage.getItem("userId") }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -36,12 +38,14 @@ const Personagem = ({ userId = localStorage.getItem("userId") }) => {
   const [userName, setUser] = useState();
   const [peso, setPeso] = useState();
   const [altura, setAltura] = useState();
+  const [isHistoricoOpen, setIsHistoricoOpen] = useState(false);
+  const [personagemType, setPersonagemType] = useState(null); // 1 para masculino, 2 para feminino
 
   useEffect(() => {
     console.log(userId);
     const fetchUser = async () => {
       const { name } = await userService.getUser(userId);
-      // console.log(name);
+      console.log(name);
       setUser(name);
       // console.log(user);
     };
@@ -58,10 +62,16 @@ const Personagem = ({ userId = localStorage.getItem("userId") }) => {
       setAltura(altura);
     };
 
+    const fetchPersonagemType = async () => {
+      const { personagem } = await userService.getUser(userId);
+      setPersonagemType(personagem.personagem);
+    };
+
     // Chama as funções quando o componente for montado
     fetchIMC();
     fetchMetrics();
     fetchUser();
+    fetchPersonagemType();
   }, [userId]);
 
   const CloseHandleModalToggle = () => {
@@ -111,9 +121,20 @@ const Personagem = ({ userId = localStorage.getItem("userId") }) => {
                 <RiAddLine style={{ marginRight: "0.3em" }} />
                 Registrar
               </ActiveButton>
+              <MdHistory
+                style={{
+                  marginTop: "0.5em",
+                  cursor: "pointer",
+                  alignSelf: "center",
+                  height: "2em",
+                  width: "5em",
+                  color: "#FFA800",
+                }}
+                onClick={() => setIsHistoricoOpen(true)}
+              />
             </ButtonBox>
           </BoxInfos>
-          <BoxPerson></BoxPerson>
+          <BoxPerson personagemType={personagemType}></BoxPerson>
         </BoxInfoPerson>
         <MoreBox1>+</MoreBox1>
         <CircleBox1>.</CircleBox1>
@@ -121,7 +142,10 @@ const Personagem = ({ userId = localStorage.getItem("userId") }) => {
         <CircleBox2>.</CircleBox2>
         <MoreBox3>+</MoreBox3>
         <CircleBox3>.</CircleBox3>
-
+        <ModalHistorico
+          isOpen={isHistoricoOpen}
+          CloseOnClick={() => setIsHistoricoOpen(false)}
+        />
         {isModalOpen && (
           <ModalExercicio
             isOpen={!isClosing}

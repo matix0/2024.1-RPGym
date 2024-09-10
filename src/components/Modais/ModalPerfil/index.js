@@ -13,52 +13,59 @@ import {
 
 import { useNavigate } from "react-router-dom";
 import { MdClose } from "react-icons/md";
+import userService from "../../../services/userService";
 
 function ModalPerfil({ isOpen, CloseOnClick, SuccessOnClick }) {
-  // Estados para armazenar os valores dos inputs
-  const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [nome, setNome] = useState("");
   const [idade, setIdade] = useState("");
   const [altura, setAltura] = useState("");
   const [peso, setPeso] = useState("");
+  const [successMessage, setSuccessMessage] = useState(""); // Estado para o aviso de sucesso
 
   const navigate = useNavigate();
 
-  // Função para verificar se todos os campos estão preenchidos
-  const areFieldsValid = () => {
+  // Função para verificar se pelo menos um campo foi preenchido
+  const isAnyFieldFilled = () => {
     return (
-      email.trim() !== "" &&
-      senha.trim() !== "" &&
-      nome.trim() !== "" &&
-      idade.trim() !== "" &&
-      altura.trim() !== "" &&
+      senha.trim() !== "" ||
+      nome.trim() !== "" ||
+      idade.trim() !== "" ||
+      altura.trim() !== "" ||
       peso.trim() !== ""
     );
   };
 
-  // Função para lidar com o clique de "Registrar"
-  const handleRegistrar = () => {
-    if (areFieldsValid()) {
-      const registro = {
-        email: email,
-        senha,
-        nome,
-        idade,
-        altura,
-        peso,
-      };
-      SuccessOnClick(registro); // Envia os dados para a função SuccessOnClick
+  const handleRegistrar = async () => {
+    const userId = localStorage.getItem("userId");
+
+    // Só envia os campos que foram preenchidos
+    const updatedData = {};
+    if (senha.trim() !== "") updatedData.password = senha;
+    if (nome.trim() !== "") updatedData.name = nome;
+    if (idade.trim() !== "") updatedData.age = idade;
+    if (altura.trim() !== "") updatedData.height = altura;
+    if (peso.trim() !== "") updatedData.weight = peso;
+
+    if (isAnyFieldFilled()) {
+      try {
+        await userService.updateUser(userId, updatedData);
+        alert("Dados atualizados com sucesso!"); // Mostra mensagem de sucesso
+        setTimeout(() => {
+          window.location.reload();
+        }, 100);
+        SuccessOnClick(updatedData);
+      } catch (error) {
+        alert("Erro ao atualizar os dados. Tente novamente.");
+      }
     } else {
-      alert("Preencha todos os campos antes de registrar!");
+      alert("Preencha pelo menos um campo antes de registrar!");
     }
   };
+
   const handleLogout = () => {
-    // Limpar a sessão do usuário
     localStorage.removeItem("id");
     sessionStorage.removeItem("id");
-
-    // Redirecionar para a página de login
     navigate("/");
   };
 
@@ -73,22 +80,16 @@ function ModalPerfil({ isOpen, CloseOnClick, SuccessOnClick }) {
             <h1 style={{ color: "white" }}>Alterar dados</h1>
             <Dados>
               <InputText
-                placeholder="E-mail"
+                placeholder="Nome"
                 type="text"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={nome}
+                onChange={(e) => setNome(e.target.value)}
               />
               <InputText
                 placeholder="Senha"
                 type="text"
                 value={senha}
                 onChange={(e) => setSenha(e.target.value)}
-              />
-              <InputText
-                placeholder="Nome"
-                type="text"
-                value={nome}
-                onChange={(e) => setNome(e.target.value)}
               />
               <Input
                 placeholder="Idade"
@@ -113,6 +114,11 @@ function ModalPerfil({ isOpen, CloseOnClick, SuccessOnClick }) {
               />
             </Dados>
             <ActiveButton onClick={handleRegistrar}>Atualizar</ActiveButton>
+            {successMessage && ( // Renderiza a mensagem de sucesso se ela existir
+              <p style={{ color: "green", marginTop: "10px" }}>
+                {successMessage}
+              </p>
+            )}
             <LogoutButton onClick={handleLogout}>Sair da conta</LogoutButton>
           </ModalContent>
         </ModalContainer>
