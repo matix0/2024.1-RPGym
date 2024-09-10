@@ -11,7 +11,12 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT;
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://rpgym-8d7ff5eb1f8b.herokuapp.com/",
+    // credentials: true,
+  })
+);
 app.use(express.json());
 
 // Função para inicializar o servidor
