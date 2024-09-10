@@ -15,7 +15,6 @@ export const Title = styled.h1`
   font-family: "Poppins", inherit;
   font-size: 2.8vw;
   margin-bottom: 0.1vh;
-  font-weight: bold;
   font-weight: 600;
 `;
 
@@ -54,7 +53,6 @@ export const DivFormsBaixo = styled.div`
 
 export const Subtitle = styled.p`
   font-family: "Poppins", inherit;
-  font-weight: bold;
   font-weight: 600;
   font-size: 1.2vw;
 `;
@@ -85,4 +83,4 @@ export const InputText1 = styled.input`
   border-style: solid;
   border-color: #cccccc;
   flex-grow: 1;
-`
+`;

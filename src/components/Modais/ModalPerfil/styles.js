@@ -132,6 +132,35 @@ export const ActiveButton = styled.button`
   }
 `;
 
+export const LogoutButton = styled.button`
+  color: rgba(255, 255, 255, 1);
+  border: black;
+  font-weight: 600;
+  font-size: 1.2em;
+  cursor: pointer;
+  background: red;
+  width: 8em;
+  height: 1.7em;
+  border-radius: 0.4vw;
+  display: flex;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s;
+  font-family: Poppins;
+  font-style: normal;
+  margin-top: 1em;
+
+  &:hover {
+    filter: brightness(1.1); /* Aumenta o brilho em 10% */
+  }
+
+  &:active {
+    transform: translateY(2px);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  }
+`;
+
 export const Input = styled.input`
   height: 6vh;
   border-radius: 0.5vw;

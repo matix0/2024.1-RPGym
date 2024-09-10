@@ -8,8 +8,10 @@ import {
   Input,
   InputText,
   Dados,
+  LogoutButton,
 } from "./styles";
 
+import { useNavigate } from "react-router-dom";
 import { MdClose } from "react-icons/md";
 
 function ModalPerfil({ isOpen, CloseOnClick, SuccessOnClick }) {
@@ -20,6 +22,8 @@ function ModalPerfil({ isOpen, CloseOnClick, SuccessOnClick }) {
   const [idade, setIdade] = useState("");
   const [altura, setAltura] = useState("");
   const [peso, setPeso] = useState("");
+
+  const navigate = useNavigate();
 
   // Função para verificar se todos os campos estão preenchidos
   const areFieldsValid = () => {
@@ -48,6 +52,14 @@ function ModalPerfil({ isOpen, CloseOnClick, SuccessOnClick }) {
     } else {
       alert("Preencha todos os campos antes de registrar!");
     }
+  };
+  const handleLogout = () => {
+    // Limpar a sessão do usuário
+    localStorage.removeItem("id");
+    sessionStorage.removeItem("id");
+
+    // Redirecionar para a página de login
+    navigate("/");
   };
 
   return (
@@ -101,6 +113,7 @@ function ModalPerfil({ isOpen, CloseOnClick, SuccessOnClick }) {
               />
             </Dados>
             <ActiveButton onClick={handleRegistrar}>Atualizar</ActiveButton>
+            <LogoutButton onClick={handleLogout}>Sair da conta</LogoutButton>
           </ModalContent>
         </ModalContainer>
       </ModalBackground>

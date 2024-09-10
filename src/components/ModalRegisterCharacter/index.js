@@ -7,7 +7,7 @@ import {
   DivDescricao,
   Butao,
   DivFormsBaixo,
-  Div,
+  Input1,
   ImagemWrapper,
   PersonagemDiv,
 } from "./styles";
@@ -59,13 +59,12 @@ function ModalRegisterCharacter() {
           <Subtitle>Insira seus dados pessoais</Subtitle>
         </DivDescricao>
         <DivFormsBaixo>
-          <Input
+          <Input1
             placeholder="Peso"
             value={weight}
             onChange={(e) => setPeso(e.target.value)} // Armazena o weight
           />
-          <Div></Div>
-          <Input
+          <Input1
             placeholder="Altura"
             value={height}
             onChange={(e) => setAltura(e.target.value)} // Armazena a height
